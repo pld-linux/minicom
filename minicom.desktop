@@ -1,7 +1,9 @@
 [Desktop Entry]
 Name=Minicom
+Name[sv]=Minicom
 Type=Application
 Comment=Terminal Emulator
 Comment[pl]=Emulator Terminala
+Comment[sv]=Terminalemulato
 Exec=minicom
 Terminal=1
