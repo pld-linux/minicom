@@ -57,7 +57,6 @@ script gibi özellikleri vardýr.
 %patch5 -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %{__make} -C src LIBDIR="%{_sysconfdir}/minicom"
 
 %install
@@ -82,7 +81,7 @@ EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/*
+gzip -9nf demos/* doc/* tables/*
 
 %find_lang minicom
 
