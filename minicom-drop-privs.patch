@@ -1,0 +1,20 @@
+--- minicom-1.83.1/src/minicom.c.foo	Thu Aug 24 00:15:41 2000
++++ minicom-1.83.1/src/minicom.c	Thu Aug 24 00:19:21 2000
+@@ -1080,6 +1080,8 @@
+ 			use_status = 1;
+ 			break;
+ 		case 'C': /* Capturing */
++		  	setegid(real_gid);
++		  	seteuid(real_uid);
+ 			capfp = sfopen(optarg, "a");
+ 			if (capfp == NULL) {
+ 				werror(_("Cannot open capture file"));
+@@ -1087,6 +1089,8 @@
+ 			}
+ 			docap = 1;
+ 			vt_set(addlf, -1, capfp, docap, -1, -1, -1, -1);
++		  	seteuid(eff_uid);
++		  	setegid(eff_gid);
+ 			break;
+ 		case 'S': /* start Script */
+ 			strncpy(scr_name, optarg, 33);
