@@ -156,7 +156,7 @@ install extras/tables/mc* $RPM_BUILD_ROOT/tmp/tables
 rm -f $RPM_BUILD_ROOT/tmp/*/Makefile*
 gzip -9nf $RPM_BUILD_ROOT/tmp/{extras,doc,tables}/*
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
 %find_lang minicom
 
 %clean
