@@ -1170,3 +1170,33 @@
 -
 -#~ msgid "%s: error getting directory\n"
 -#~ msgstr "%s: b³±d podczas odczytu katalogu\n"
+diff -uNr minicom-2.00.0.orig/po/pl.po minicom-2.00.0/po/pl.po
+--- minicom-2.00.0.orig/po/pl.po	Fri Mar  7 12:23:53 2003
++++ minicom-2.00.0/po/pl.po	Fri Mar  7 12:32:20 2003
+@@ -46,7 +46,7 @@
+ 
+ #: src/config.c:264
+ msgid " B - Log connects and hangups  :"
+-msgstr " B -  Loguj po³±. i roz³±.   :"
++msgstr " B -  Loguj pocz±tek i koniec po³±czeñ :"
+ 
+ #: src/config.c:265
+ msgid " C - Log file transfers        :"
+@@ -155,7 +155,7 @@
+ 
+ #: src/config.c:615
+ msgid "line speed"
+-msgstr "prêdko¶æ lini "
++msgstr "prêdko¶æ linii "
+ 
+ #: src/config.c:623
+ msgid " A - Init string ........."
+@@ -1553,7 +1553,7 @@
+ 
+ #: src/minicom.c:1322
+ msgid "Compiled on"
+-msgstr "Skomilowany dnia"
++msgstr "Skompilowany dnia"
+ 
+ #: src/minicom.c:1324
+ #, c-format
