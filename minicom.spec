@@ -11,7 +11,7 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.00.0
-Release:	1
+Release:	4
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
@@ -20,14 +20,12 @@ Source2:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-20020516-CVS.diff.gz
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-uninitialized.patch
-#Patch3:	%{name}-lrzsz.patch
-Patch4:		%{name}-time.patch
-#Patch5:	%{name}-man_warn.patch
-Patch6:		%{name}-umask.patch
-Patch7:		%{name}-drop-privs.patch
-Patch8:		%{name}-check_exec.patch
-Patch9:		%{name}-man_no_ko.patch
-Patch10:	%{name}-ac25x.patch
+Patch3:		%{name}-time.patch
+Patch4:		%{name}-umask.patch
+Patch5:		%{name}-drop-privs.patch
+Patch6:		%{name}-check_exec.patch
+Patch7:		%{name}-man_no_ko.patch
+Patch8:		%{name}-ac25x.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 Requires:	/usr/bin/tput
 BuildRequires:	autoconf
@@ -91,20 +89,18 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
+%patch3 -p1
 %patch4 -p1
-#%patch5 -p1
+%patch5 -p1
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
-%patch9 -p1
-%patch10 -p1
 
 %build
+rm -f missing
 gettextize --copy --force
 aclocal
 autoconf
-rm -f missing
 automake -a -c -f
 %configure \
 	--disable-static \
@@ -118,8 +114,7 @@ gzip -9nf AUTHORS ChangeLog INSTALL README
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom} \
+install -d $RPM_BUILD_ROOT{/etc/profile.d,%{_sysconfdir}/minicom} \
 	$RPM_BUILD_ROOT%{_applnkdir}/System \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
@@ -132,7 +127,7 @@ pu minit            ~^M~ATZ^M~
 pu mreset           ~^M~ATZ^M~
 EOF
 
-cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/profile.d/minicom.sh
+cat << EOF > $RPM_BUILD_ROOT/etc/profile.d/minicom.sh
 MINICOM="-L"
 if [ "`/usr/bin/tput colors`" != "-1" ] ; then
 	MINICOM="\$MINICOM -c on"
@@ -140,7 +135,7 @@ fi
 export MINICOM
 EOF
 
-cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/profile.d/minicom.csh
+cat << EOF > $RPM_BUILD_ROOT/etc/profile.d/minicom.csh
 setenv MINICOM "-L"
 if ( "`/usr/bin/tput colors`" != "-1" ) \
 	setenv MINICOM "\$MINICOM -c on"
@@ -169,8 +164,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
 %attr(640,root,ttyS) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
-%attr(755,root,root) %{_sysconfdir}/profile.d/minicom.sh
-%attr(755,root,root) %{_sysconfdir}/profile.d/minicom.csh
+%attr(755,root,root) /etc/profile.d/minicom.sh
+%attr(755,root,root) /etc/profile.d/minicom.csh
 
 %attr(755,root,root) %{_bindir}/minicom
 
