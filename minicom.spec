@@ -11,14 +11,15 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.1
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
 # Source0-md5:	1c8f3b247c38fb16c3c2170df9fc102a
 Source1:	%{name}.desktop
-Source2:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
-# Source2-md5:	93ca30842bce63473004570b6b30be25
+Source2:	%{name}.png
+Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+# Source3-md5:	93ca30842bce63473004570b6b30be25
 Patch0:		%{name}-fromsnap.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-uninitialized.patch
@@ -121,7 +122,7 @@ rm -f doc/*.old
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/profile.d,%{_sysconfdir}/minicom} \
-	$RPM_BUILD_ROOT%{_applnkdir}/System \
+	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
 %{__make} DESTDIR="$RPM_BUILD_ROOT" \
@@ -148,7 +149,8 @@ if ( "`/usr/bin/tput colors`" != "-1" ) \
 EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
-bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 # Prepare directories with doc files
 # (nasty hack to avoid Makefiles & have docs splitted into dirs)
@@ -180,6 +182,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ascii-xfr
 
 %{_applnkdir}/System/minicom.desktop
+%{_pixmapsdir}/*
 %{_mandir}/man1/*
 %lang(ko) %{_mandir}/ko/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
