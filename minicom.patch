@@ -1,0 +1,80 @@
+diff -urN minicom-1.82.orig/src/config.h minicom-1.82/src/config.h
+--- minicom-1.82.orig/src/config.h	Thu Dec 24 22:48:47 1998
++++ minicom-1.82/src/config.h	Thu Dec 24 22:54:22 1998
+@@ -19,14 +19,14 @@
+  */
+ 
+ /* Operating system INdependant parameters. (Usually the same everywhere) */
+-#define KERMIT "/usr/local/bin/kermit -l %l -b %b"	/* How to call kermit */
++#define KERMIT "/usr/bin/kermit -l %l -b %b"	/* How to call kermit */
+ #define UUCPLOCK	"/var/spool/uucp"	/* Lock file directory */
+ #define LOGFILE		"minicom.log"		/* Not defined = not used */
+ 
+ /* Operating system dependant parameters, per OS. A few samples are given. */
+ #if defined(__linux__)
+-#  define DFL_PORT "/dev/ttyS1"		/* Which tty to use */
+-#  define DEF_BAUD "57600"		/* Default baud rate */
++#  define DFL_PORT "/dev/modem"		/* Which tty to use */
++#  define DEF_BAUD "38400"		/* Default baud rate */
+ #  define CALLOUT  ""			/* Gets run to get into dial out mode */
+ #  define CALLIN   ""			/* Gets run to get into dial in mode */
+ #  undef  UUCPLOCK
+diff -urN minicom-1.82.orig/src/install.sh minicom-1.82/src/install.sh
+--- minicom-1.82.orig/src/install.sh	Thu Dec 24 22:48:47 1998
++++ minicom-1.82/src/install.sh	Thu Dec 24 22:53:51 1998
+@@ -3,11 +3,6 @@
+ #
+ NAME=`id |sed 's/uid=[0-9]*(\(.*\))  *gid=.*$/\1/'`
+ 
+-if test "$NAME" != root
+-then
+-	echo "You must be root to install minicom."
+-	exit 1
+-fi
+ 
+ if test $# != 4
+ then
+@@ -41,8 +36,6 @@
+ then
+ 	echo "Installing minicom in $2"
+ 	cp minicom $2/minicom
+-	chown root $2/minicom
+-	chgrp uucp $2/minicom
+ 	chmod 755 $2/minicom
+ fi
+ 
+@@ -53,8 +46,6 @@
+ 	echo "Installing $i in $2"
+ 	cp $i $2/$i
+ 	chmod 755 $2/$i
+-	chown root $2/$i
+-	chgrp root $2/$i
+   fi
+ done
+ 
+@@ -63,8 +54,6 @@
+ 	echo "Installing keyserv in $1"
+ 	cp keyserv $1/keyserv
+ 	chmod 755 $1/keyserv
+-	chown root $1/keyserv
+-	chgrp root $1/keyserv
+ fi
+ 
+ echo "Installing manpages in $3"
+@@ -72,16 +61,12 @@
+ do
+ 	cp ../man/$i $3
+ 	chmod 644 $3/$i
+-	chown root $3/$i
+-	chgrp root $3/$i
+ done
+ 
+ if [ ! -f $1/minicom.users ]
+ then
+ 	echo "Installing sample config file minicom.users in $1"
+ 	cp minicom.users $1
+-	chown root $1/minicom.users
+-	chgrp root $1/minicom.users
+ 	chmod 644 $1/minicom.users
+ fi
+ 
