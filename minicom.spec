@@ -11,7 +11,7 @@ Group: 		Applications/Communications
 Source: 	ftp://sunsite.unc.edu/pub/Linux/apps/serialcomm/dialout/%{name}-%{version}.src.tar.gz
 Source1: 	minicom.wmconfig
 Patch: 	        minicom.patch
-Buildroot: 	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Minicom is a communications program that resembles the MSDOS Telix
