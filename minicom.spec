@@ -10,12 +10,12 @@ Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
 Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
-Version:	2.00.0
-Release:	10
+Version:	2.1
+Release:	0.1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://www.netsonic.fi/~walker/%{name}-%{version}.src.tar.gz
-# Source0-md5:	961aca526087d3d8d46f87a321b9c45a
+Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
+# Source0-md5:	1c8f3b247c38fb16c3c2170df9fc102a
 Source1:	%{name}.desktop
 Source2:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source2-md5:	93ca30842bce63473004570b6b30be25
@@ -93,22 +93,21 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
-%patch7 -p1
+#%patch6 -p1
+#%patch7 -p1
 %patch8 -p1
-%patch9 -p0
-%patch10 -p1
-%patch11 -p1
+#%patch9 -p0
+#%patch10 -p1
+#%patch11 -p1
 %patch12 -p1
 
 %build
-mv po/cs_CZ.po po/cs.po
 rm -f missing
 %{__gettextize}
 %{__aclocal}
