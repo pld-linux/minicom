@@ -101,7 +101,7 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %build
 mv po/cs_CZ.po po/cs.po
 rm -f missing
-gettextize --copy --force
+%{__gettextize}
 aclocal
 %{__autoconf}
 %{__automake}
