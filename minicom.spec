@@ -58,7 +58,7 @@ script gibi özellikleri vardýr.
 
 %build
 LDFLAGS="-s"; export LDFLAGS
-make -C src LIBDIR="%{_sysconfdir}/minicom"
+%{__make} -C src LIBDIR="%{_sysconfdir}/minicom"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -67,7 +67,7 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom} \
 	$RPM_BUILD_ROOT%{_applnkdir}/System \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
-make -C src DESTDIR="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1" install
+%{__make} -C src DESTDIR="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1" install
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/minicom/minirc.dfl
 pu minit            ~^M~ATZ^M~
