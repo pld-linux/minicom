@@ -5,18 +5,18 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.0
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Communications
 Group(pl):	Aplikacje/Komunikacja
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
 Source1:	%{name}.desktop
-Source2:	http://www.pp.clinet.fi/~walker/%{name}.FAQ
 Patch0:		%{name}-ncurses.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}.patch
 Patch3:		%{name}.uninitialized.patch
 Patch4:		%{name}-make.patch
+Patch5:		%{name}-lrzsz.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 BuildRequires:	ncurses-devel >= 5.0
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -55,6 +55,7 @@ Minicom, MSDOS Telix programýna benzeyen bir iletiþim programýdýr. Numara
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
@@ -81,10 +82,8 @@ export MINICOM
 EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Networking
-install %{SOURCE2} .
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/* \
-	minicom.FAQ
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/*
 
 %find_lang minicom
 
@@ -93,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f minicom.lang
 %defattr(644,root,root,755)
-%doc demos doc tables minicom.FAQ.gz
+%doc demos doc tables
 
 %attr(750,root,root) %dir %{_sysconfdir}/minicom
 %attr(640,root,root) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
