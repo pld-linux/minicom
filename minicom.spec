@@ -21,6 +21,9 @@ Patch5:		%{name}-lrzsz.patch
 Patch6:		%{name}-time.patch
 Patch7:		%{name}-logging.patch
 Patch8:		%{name}-ko.patch
+Patch9:		%{name}-format-string-vuln.patch
+Patch10:	%{name}-umask.patch
+Patch11:	%{name}-drop-privs.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,6 +65,9 @@ script gibi özellikleri vardýr.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
 
 %build
 %{__make} -C src LIBDIR="%{_sysconfdir}/minicom"
