@@ -5,7 +5,7 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.1
-Release:	11
+Release:	12
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
@@ -23,6 +23,7 @@ Patch8:		%{name}-ko.patch
 Patch9:		%{name}-format-string-vuln.patch
 Patch10:	%{name}-umask.patch
 Patch11:	%{name}-drop-privs.patch
+Patch12:	%{name}-check_exec.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,6 +68,7 @@ script gibi özellikleri vardýr.
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 %build
 %{__make} -C src LIBDIR="%{_sysconfdir}/minicom"
@@ -78,7 +80,9 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom} \
 	$RPM_BUILD_ROOT%{_applnkdir}/System \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
-%{__make} -C src DESTDIR="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1" install
+%{__make} -C src DESTDIR="$RPM_BUILD_ROOT" \
+	LIBDIR="%{_sysconfdir}/minicom" \
+	MANDIR="%{_mandir}/man1" install
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/minicom/minirc.dfl
 pu minit            ~^M~ATZ^M~
