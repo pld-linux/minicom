@@ -1,0 +1,118 @@
+--- minicom-1.83.1/src/po/fi_FI.po.orig	Fri Apr 26 23:38:38 2002
++++ minicom-1.83.1/src/po/fi_FI.po	Fri Apr 26 23:51:02 2002
+@@ -1196,6 +1196,12 @@
+ msgid "download"
+ msgstr "vastaanotto"
+ 
++# , c-format
++#: ../updown.c:276 ../updown.c:397 ../updown.c:612
++#, c-format
++msgid "Error executing `%s'"
++msgstr "Error executing `%s'"
++
+ #: ../updown.c:352
+ msgid ""
+ "\n"
+--- minicom-1.83.1/src/po/fr.po.orig	Fri Apr 26 23:40:03 2002
++++ minicom-1.83.1/src/po/fr.po	Sat Apr 27 00:34:14 2002
+@@ -1174,6 +1174,11 @@
+ msgid "download"
+ msgstr "télécharger"
+ 
++#: ../updown.c:276 ../updown.c:397 ../updown.c:612
++#, c-format
++msgid "Error executing `%s'"
++msgstr "Erreur lors de l'exécution de `%s'"
++
+ #: ../updown.c:352
+ msgid ""
+ "\n"
+--- minicom-1.83.1/src/po/ja.po.orig	Fri Apr 26 23:41:56 2002
++++ minicom-1.83.1/src/po/ja.po	Sat Apr 27 00:30:45 2002
+@@ -1276,6 +1276,12 @@
+ msgid "download"
+ msgstr "¥À¥¦¥ó¥í¡¼¥É"
+ 
++# c-format(have percent)
++#: ../updown.c:276 ../updown.c:397 ../updown.c:612
++#, c-format
++msgid "Error executing `%s'"
++msgstr "¼Â¹Ô¥¨¥é¡¼ `%s'"
++
+ # c-format(wprintf)
+ #: ../updown.c:352
+ msgid ""
+--- minicom-1.83.1/src/po/ko.po.orig	Fri Apr 26 23:39:33 2002
++++ minicom-1.83.1/src/po/ko.po	Fri Apr 26 23:48:43 2002
+@@ -1537,6 +1537,13 @@
+ msgid "download"
+ msgstr "´Ù¿î·Îµå"
+ 
++# ../updown.c:269 ../updown.c:387 ../updown.c:602
++# c-format(have percent)
++#: ../updown.c:276 ../updown.c:397 ../updown.c:612
++#, c-format
++msgid "Error executing `%s'"
++msgstr "`%s'À»(¸¦) ½ÇÇàÇÒ ¶§ ¿À·ù"
++
+ # ../updown.c:342
+ # c-format(wprintf)
+ #: ../updown.c:352
+--- minicom-1.83.1/src/po/pl.po.orig	Fri Apr 26 23:41:46 2002
++++ minicom-1.83.1/src/po/pl.po	Sat Apr 27 00:44:46 2002
+@@ -1161,6 +1161,11 @@
+ msgid "download"
+ msgstr "¶ci±ganie"
+ 
++#: ../updown.c:276 ../updown.c:397 ../updown.c:612
++#, c-format
++msgid "Error executing `%s'"
++msgstr "Wyst±pi³ b³±d podczas wykonywania `%s'"
++
+ #: ../updown.c:352
+ msgid ""
+ "\n"
+--- minicom-1.83.1/src/po/pt_BR.po.orig	Fri Apr 26 23:40:36 2002
++++ minicom-1.83.1/src/po/pt_BR.po	Sat Apr 27 00:34:53 2002
+@@ -1425,6 +1425,12 @@
+ msgid "download"
+ msgstr "recepção"
+ 
++# ../updown.c:276 ../updown.c:397 ../updown.c:612
++#: ../updown.c:276 ../updown.c:397 ../updown.c:612
++#, c-format
++msgid "Error executing `%s'"
++msgstr "Erro ao executar `%s'"
++
+ # ../updown.c:352
+ #: ../updown.c:352
+ msgid ""
+--- minicom-1.83.1/src/updown.c.orig	Sat Apr 27 02:01:07 2002
++++ minicom-1.83.1/src/updown.c	Sat Apr 27 02:01:07 2002
+@@ -329,6 +329,8 @@
+   }
+ 
+   while( udpid != m_wait(&status) );
++  if (status)
++  	werror(_("Error executing `%s'"), cmdline);
+   if (win) {
+ 	enab_sig(0, 0);
+ 	signal(SIGINT, SIG_IGN);
+@@ -401,6 +403,8 @@
+   }
+ 
+   (void) m_wait(&status);
++  if (status)
++  	werror(_("Error executing `%s'"), P_KERMIT);
+ 
+   /* Restore screen and keyboard modes */
+   wreturn();
+@@ -630,6 +634,8 @@
+   
+   /* Collect status, and clean up. */
+   (void) m_wait(&status);
++  if (status)
++  	werror(_("Error executing `%s'"), cmdline);
+   enab_sig(0, 0);
+   signal(SIGINT, SIG_IGN);
+   (void) setcbreak(2); /* Raw, no echo */
