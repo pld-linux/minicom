@@ -68,10 +68,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %attr(644, root, root) %config(missingok) /etc/X11/wmconfig/minicom
 
-%lang(fi) /usr/share/locale/fi*/LC_MESSAGES/*.mo
-%lang(fr) /usr/share/locale/fr/LC_MESSAGES/*.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/*.mo
-%lang(pt) /usr/share/locale/pt*/LC_MESSAGES/*.mo
+%lang(fi) %{_datadir}/locale/fi*/LC_MESSAGES/*.mo
+%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/*.mo
+%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/*.mo
+%lang(pt) %{_datadir}/locale/pt*/LC_MESSAGES/*.mo
 
 %changelog
 * Thu Nov 12 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
