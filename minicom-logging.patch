@@ -1,15 +1,3 @@
-diff -Naur minicom-1.83.1/src/dial.c minicom-1.83.1-p/src/dial.c
---- minicom-1.83.1/src/dial.c	Sat May  5 08:47:36 2001
-+++ minicom-1.83.1-p/src/dial.c	Sat May  5 08:48:48 2001
-@@ -908,7 +908,7 @@
-     if (snprintf(copycmd,sizeof(copycmd),
- 	     "cp %s %s.%hd",dfile,dfile,dial_ver.size) > 0) {
-       if (P_LOGFNAME[0] != 0)
--	do_log(copycmd);
-+	do_log("%s", copycmd);
-       if (system(copycmd) == 0) {
- 	snprintf(copycmd,sizeof(copycmd),
- 		 _("Old dialdir copied as %s.%hd"),dfile,dial_ver.size);
 diff -Naur minicom-1.83.1/src/minicom.c minicom-1.83.1-p/src/minicom.c
 --- minicom-1.83.1/src/minicom.c	Sat May  5 08:47:36 2001
 +++ minicom-1.83.1-p/src/minicom.c	Sat May  5 08:49:05 2001
