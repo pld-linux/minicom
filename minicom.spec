@@ -1,35 +1,37 @@
 Summary:	TTY mode communications package ala Telix
 Summary(de):	TTY-Modus-Kommunikationspaket (Дhnlich Telix)
 Summary(es):	Paquete de comunicaciones modo texto a la Telix
+Summary(fi):	Tietoliikenneohjelma, kuten Telix
 Summary(fr):	Package de communication en mode terminal Ю la Telix
 Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(pt_BR):	Pacote de comunicaГУes modo texto a la Telix
-Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
 Summary(ru):	Коммуникационный пакет типа Telix для текстового режима
+Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
 Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
-Version:	1.83.1
-Release:	14
-License:	GPL
+Version:	2.00.0
+Release:	1
+License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-non-english-man-pages.tar.bz2
-Patch0:		%{name}-ncurses.patch
+Patch0:		%{name}-20020516-CVS.diff.gz
 Patch1:		%{name}-man.patch
-Patch2:		%{name}.patch
-Patch3:		%{name}.uninitialized.patch
-Patch4:		%{name}-make.patch
-Patch5:		%{name}-lrzsz.patch
-Patch6:		%{name}-time.patch
-Patch7:		%{name}-logging.patch
-Patch8:		%{name}-ko.patch
-Patch9:		%{name}-format-string-vuln.patch
-Patch10:	%{name}-umask.patch
-Patch11:	%{name}-drop-privs.patch
-Patch12:	%{name}-check_exec.patch
+Patch2:		%{name}-uninitialized.patch
+#Patch3:	%{name}-lrzsz.patch
+Patch4:		%{name}-time.patch
+#Patch5:	%{name}-man_warn.patch
+Patch6:		%{name}-umask.patch
+Patch7:		%{name}-drop-privs.patch
+Patch8:		%{name}-check_exec.patch
+Patch9:		%{name}-man_no_ko.patch
+Patch10:	%{name}-po_DESTDIR.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
+Requires:	/usr/bin/tput
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,6 +51,11 @@ Minicom es un programa de comunicaciСn que se parece con el Telix del
 MSDOS. Tiene un directorio de marcado, color, emulaciСn completa ANSI
 y VT100, y un lenguaje externo de sxripts y mail.
 
+%description -l fi
+Minicom on MSDOS-TelixiД jossain mДДrin muistuttava
+tietoliikenneohjelma. Ohjelmassa on mm. puhelinluettelo, vДrit, ANSI-
+ja VT100-emulaatiot ja ulkoinen script-kieli.
+
 %description -l fr
 Minicom est un programme de communication ressemblant a Telix sous
 MSDOS. Il a un rИpertoire de numИrotation, des couleurs, une Иmualtion
@@ -64,15 +71,15 @@ Minicom И um programa de comunicaГЦo que parece com o Telix do MSDOS.
 Tem um diretСrio de discagem, cor, emulaГЦo completa ANSI e VT100, e
 uma linguagem externa de scripts e mail.
 
-%description -l tr
-Minicom, MSDOS Telix programЩna benzeyen bir iletiЧim programЩdЩr.
-Numara Гevirme dizini, renk, tam ANSI uyumu ve VT100 ЖykЭnЭmЭ ile
-script gibi Жzellikleri vardЩr.
-
 %description -l ru
 Minicom - это коммуникационная программа, в чем-то похожая на MSDOS
 Telix. Она включает телефонную книгу, цвет, полную поддержку ANSI и
 VT100, внешний язык скриптов и многое другое.
+
+%description -l tr
+Minicom, MSDOS Telix programЩna benzeyen bir iletiЧim programЩdЩr.
+Numara Гevirme dizini, renk, tam ANSI uyumu ve VT100 ЖykЭnЭmЭ ile
+script gibi Жzellikleri vardЩr.
 
 %description -l uk
 Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
@@ -84,19 +91,29 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
+#%patch3 -p1
 %patch4 -p1
-%patch5 -p1
+#%patch5 -p1
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
-%patch11 -p1
-%patch12 -p1
 
 %build
-%{__make} -C src LIBDIR="%{_sysconfdir}/minicom"
+aclocal
+autoconf
+rm -f missing
+automake -a -c -f
+%configure \
+	--disable-static \
+	--sysconfdir="%{_sysconfdir}/minicom"
+
+%{__make}
+# LIBDIR="%{_sysconfdir}/minicom"
+
+rm -f doc/*.old
+gzip -9nf AUTHORS ChangeLog INSTALL README
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -105,7 +122,7 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom} \
 	$RPM_BUILD_ROOT%{_applnkdir}/System \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
-%{__make} -C src DESTDIR="$RPM_BUILD_ROOT" \
+%{__make} DESTDIR="$RPM_BUILD_ROOT" \
 	LIBDIR="%{_sysconfdir}/minicom" \
 	MANDIR="%{_mandir}/man1" install
 
@@ -116,7 +133,7 @@ EOF
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/profile.d/minicom.sh
 MINICOM="-L"
-if [ "\$TERM" = linux -o "\$TERM" = xterm-color -o "\$TERM" = vt220 ] ; then
+if [ "`/usr/bin/tput colors`" != "-1" ] ; then
 	MINICOM="\$MINICOM -c on"
 fi
 export MINICOM
@@ -124,14 +141,21 @@ EOF
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/profile.d/minicom.csh
 setenv MINICOM "-L"
-if ( "\$TERM" == linux || "\$TERM" == xterm-color || "\$TERM" == vt220 ) \
+if ( "`/usr/bin/tput colors`" != "-1" ) \
 	setenv MINICOM "\$MINICOM -c on"
 EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf demos/* doc/* tables/*
+# Prepare directories with doc files
+# (nasty hack to avoid Makefiles & have docs splitted into dirs)
+install -d $RPM_BUILD_ROOT/tmp/{extras,doc,tables}
+install extras/[hsu]* $RPM_BUILD_ROOT/tmp/extras
+install doc/* $RPM_BUILD_ROOT/tmp/doc
+install extras/tables/mc* $RPM_BUILD_ROOT/tmp/tables
+rm -f $RPM_BUILD_ROOT/tmp/*/Makefile*
+gzip -9nf $RPM_BUILD_ROOT/tmp/{extras,doc,tables}/*
 
 %find_lang minicom
 
@@ -140,7 +164,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f minicom.lang
 %defattr(644,root,root,755)
-%doc demos doc tables
+%doc *.gz $RPM_BUILD_ROOT/tmp/*
 
 %attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
 %attr(640,root,ttyS) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
