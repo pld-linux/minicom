@@ -5,7 +5,7 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.82.1
-Release:	3
+Release:	4
 Copyright:	GPL
 Group:		Applications/Communications
 Group(pl):	Aplikacje/Komunikacja
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/ascii-xfr
 
 %attr(644,root,root) %config(missingok) /etc/X11/wmconfig/minicom
-%attr(644,root, man) %{_mandir}/*
+%attr(644,root, man) %{_mandir}/man1/*
 
 %lang(fi) /usr/share/locale/fi_FI/LC_MESSAGES/*.mo
 %lang(fr) /usr/share/locale/fr/LC_MESSAGES/*.mo
