@@ -8,8 +8,6 @@ Version:	1.83.1
 Release:	11
 License:	GPL
 Group:		Applications/Communications
-Group(de):	Applikationen/Kommunikation
-Group(pl):	Aplikacje/Komunikacja
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-non-english-man-pages.tar.bz2
