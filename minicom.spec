@@ -1,8 +1,13 @@
 Summary:	TTY mode communications package ala Telix
 Summary(de):	TTY-Modus-Kommunikationspaket (Дhnlich Telix)
+Summary(es):	Paquete de comunicaciones modo texto a la Telix
 Summary(fr):	Package de communication en mode terminal Ю la Telix
 Summary(pl):	Program komunikacyjny (podobny do Telix-a)
+Summary(pt_BR):	Pacote de comunicaГУes modo texto a la Telix
 Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
+Summary(ru):	Коммуникационный пакет типа Telix для текстового режима
+Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
+Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	1.83.1
 Release:	14
@@ -39,6 +44,11 @@ unter MSDOS aufweist. Es enthДlt ein WДhlverzeichnis, Farbe,
 vollstДndige ANSI- und VT100-Emulation, eine (externe) Scriptsprache
 usw.
 
+%description -l es
+Minicom es un programa de comunicaciСn que se parece con el Telix del
+MSDOS. Tiene un directorio de marcado, color, emulaciСn completa ANSI
+y VT100, y un lenguaje externo de sxripts y mail.
+
 %description -l fr
 Minicom est un programme de communication ressemblant a Telix sous
 MSDOS. Il a un rИpertoire de numИrotation, des couleurs, une Иmualtion
@@ -49,10 +59,25 @@ Minicom jest programem komunikacyjnym, przypominaj╠cym DOSowy program
 Telix. Posiada ksi╠©kЙ telefoniczn╠, emulacjЙ terminali ANSI i VT100,
 zewnЙtrzny jЙzyk skryptowy, obsЁugЙ kolorСw i wiele innych wЁasno╤ci.
 
+%description -l pt_BR
+Minicom И um programa de comunicaГЦo que parece com o Telix do MSDOS.
+Tem um diretСrio de discagem, cor, emulaГЦo completa ANSI e VT100, e
+uma linguagem externa de scripts e mail.
+
 %description -l tr
 Minicom, MSDOS Telix programЩna benzeyen bir iletiЧim programЩdЩr.
 Numara Гevirme dizini, renk, tam ANSI uyumu ve VT100 ЖykЭnЭmЭ ile
 script gibi Жzellikleri vardЩr.
+
+%description -l ru
+Minicom - это коммуникационная программа, в чем-то похожая на MSDOS
+Telix. Она включает телефонную книгу, цвет, полную поддержку ANSI и
+VT100, внешний язык скриптов и многое другое.
+
+%description -l uk
+Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
+м╕стить телефонну книгу, кол╕р, повну п╕дтримку ANSI та VT100, зовн╕шю
+мову скрипт╕в та багато ╕ншого.
 
 %prep
 %setup -q
