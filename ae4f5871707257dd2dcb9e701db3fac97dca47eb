@@ -1,0 +1,8 @@
+- upgrade to version 2.00.0
+- added current updates from CVS
+- fi translation from sources
+- removed outdated patches; some other rediffed
+- using autoconf/automake
+- more docs + nasty hack for placing them in subdirs
+- using tput for color terminal detection
+- release 1, STBR
