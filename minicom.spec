@@ -23,18 +23,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Minicom is a communications program that resembles the MSDOS Telix
-somewhat. It has a dialing directory, color, full ANSI and VT100 emulation,
-an (external) scripting language and more.
+somewhat. It has a dialing directory, color, full ANSI and VT100
+emulation, an (external) scripting language and more.
 
 %description -l de
-Minicom ist ein Kommunikationsprogramm, das Ähnlichkeiten mit Telix  unter
-MSDOS aufweist. Es enthält ein Wählverzeichnis, Farbe, vollständige ANSI-
-und VT100-Emulation, eine (externe) Scriptsprache usw.
+Minicom ist ein Kommunikationsprogramm, das Ähnlichkeiten mit Telix
+unter MSDOS aufweist. Es enthält ein Wählverzeichnis, Farbe,
+vollständige ANSI- und VT100-Emulation, eine (externe) Scriptsprache
+usw.
 
 %description -l fr
-Minicom est un programme de communication ressemblant a Telix sous MSDOS.
-Il a un répertoire de numérotation, des couleurs, une émualtion ANSI et
-VT100, un langage de script externe et plus encore.
+Minicom est un programme de communication ressemblant a Telix sous
+MSDOS. Il a un répertoire de numérotation, des couleurs, une émualtion
+ANSI et VT100, un langage de script externe et plus encore.
 
 %description -l pl
 Minicom jest programem komunikacyjnym, przypominaj±cym DOSowy program
@@ -42,9 +43,9 @@ Telix. Posiada ksi±¿kê telefoniczn±, emulacjê terminali ANSI i VT100,
 zewnêtrzny jêzyk skryptowy, obs³ugê kolorów i wiele innych w³asno¶ci.
 
 %description -l tr
-Minicom, MSDOS Telix programýna benzeyen bir iletiþim programýdýr. Numara
-çevirme dizini, renk, tam ANSI uyumu ve VT100 öykünümü ile script gibi
-özellikleri vardýr.
+Minicom, MSDOS Telix programýna benzeyen bir iletiþim programýdýr.
+Numara çevirme dizini, renk, tam ANSI uyumu ve VT100 öykünümü ile
+script gibi özellikleri vardýr.
 
 %prep
 %setup -q
