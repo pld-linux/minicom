@@ -19,9 +19,7 @@ Patch4:		%{name}-make.patch
 Patch5:		%{name}-lrzsz.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 BuildRequires:	ncurses-devel >= 5.0
-Buildroot:	/tmp/%{name}-%{version}-root
-
-%define		_applnkdir	/usr/X11R6/share/applnk
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Minicom is a communications program that resembles the MSDOS Telix
