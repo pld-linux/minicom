@@ -11,10 +11,10 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.00.0
-Release:	7
+Release:	8
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
+Source0:	http://www.netsonic.fi/~walker/%{name}-%{version}.src.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-20020516-CVS.diff.gz
@@ -27,7 +27,7 @@ Patch6:		%{name}-check_exec.patch
 Patch7:		%{name}-man_no_ko.patch
 Patch8:		%{name}-ac25x.patch
 Patch9:		%{name}-cs.patch
-URL:		http://www.pp.clinet.fi/~walker/minicom.html
+URL:		http://www.netsonic.fi/~walker/minicom.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -154,7 +154,6 @@ install extras/[hsu]* $RPM_BUILD_ROOT/tmp/extras
 install doc/* $RPM_BUILD_ROOT/tmp/doc
 install extras/tables/mc* $RPM_BUILD_ROOT/tmp/tables
 rm -f $RPM_BUILD_ROOT/tmp/*/Makefile*
-gzip -9nf $RPM_BUILD_ROOT/tmp/{extras,doc,tables}/*
 
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
 %find_lang minicom
@@ -164,7 +163,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f minicom.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog INSTALL README $RPM_BUILD_ROOT/tmp/*
+%doc AUTHORS ChangeLog INSTALL README $RPM_BUILD_ROOT/tmp/{extras,doc,tables}/*
 
 %attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
 %attr(640,root,ttyS) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
