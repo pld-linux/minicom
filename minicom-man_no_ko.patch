@@ -1,0 +1,12 @@
+diff -ur minicom-2.00.0.orig/man/minicom.1 minicom-2.00.0/man/minicom.1
+--- minicom-2.00.0.orig/man/minicom.1	Sun Sep 30 15:10:34 2001
++++ minicom-2.00.0/man/minicom.1	Thu May 16 21:26:19 2002
+@@ -844,8 +844,6 @@
+ Gael Queri (gqueri@mail.dotcom.fr) wrote the French translations.
+ .br
+ Arkadiusz Miskiewicz (misiek@pld.org.pl) wrote the Polish translations.
+-.br
+-Kim Soyoung (nexti@chollian.net) wrote the Korean translations.
+ .PP
+ Most of this man page is copied, with corrections, from the original minicom
+ README, but some pieces and the corrections are by Michael K. Johnson.
