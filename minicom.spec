@@ -28,10 +28,11 @@ Patch7:		%{name}-man_no_ko.patch
 Patch8:		%{name}-ac25x.patch
 Patch9:		%{name}-cs.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
-Requires:	/usr/bin/tput
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	ncurses-devel >= 5.0
+Requires:	/usr/bin/tput
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -102,7 +103,7 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 mv po/cs_CZ.po po/cs.po
 rm -f missing
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
@@ -113,7 +114,6 @@ aclocal
 # LIBDIR="%{_sysconfdir}/minicom"
 
 rm -f doc/*.old
-gzip -9nf AUTHORS ChangeLog INSTALL README
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -163,7 +163,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f minicom.lang
 %defattr(644,root,root,755)
-%doc *.gz $RPM_BUILD_ROOT/tmp/*
+%doc AUTHORS ChangeLog INSTALL README $RPM_BUILD_ROOT/tmp/*
 
 %attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
 %attr(640,root,ttyS) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
