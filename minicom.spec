@@ -4,8 +4,8 @@ Summary(fr):	Package de communication en mode terminal à la Telix
 Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
-Version:	1.83.0
-Release:	5
+Version:	1.83.1
+Release:	1
 License:	GPL
 Group:		Applications/Communications
 Group(pl):	Aplikacje/Komunikacja
@@ -64,7 +64,7 @@ make -C src LIBDIR="%{_sysconfdir}/minicom"
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom} \
-	$RPM_BUILD_ROOT%{_applnkdir}/Networking \
+	$RPM_BUILD_ROOT%{_applnkdir}/System \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
 make -C src DESTDIR="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1" install
@@ -80,7 +80,7 @@ MINICOM="-c on -m -L"
 export MINICOM
 EOF
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Networking
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/*
 
@@ -103,5 +103,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xminicom
 %attr(755,root,root) %{_bindir}/ascii-xfr
 
-%{_applnkdir}/Networking/minicom.desktop
+%{_applnkdir}/System/minicom.desktop
 %{_mandir}/man1/*
