@@ -8,6 +8,6 @@ Comment[pt]=Emulador de Terminal
 Comment[pt_BR]=Emulador de Terminal
 Comment[sv]=Terminalemulato
 Exec=minicom
-Terminal=1
+Terminal=true
 Icon=minicom.png
 # vi: encoding=utf-8
