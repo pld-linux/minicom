@@ -5,13 +5,14 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.1
-Release:	10
+Release:	11
 License:	GPL
 Group:		Applications/Communications
 Group(de):	Applikationen/Kommunikation
 Group(pl):	Aplikacje/Komunikacja
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
 Source1:	%{name}.desktop
+Source2:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-ncurses.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}.patch
@@ -92,6 +93,7 @@ export MINICOM
 EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
+bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 gzip -9nf demos/* doc/* tables/*
 
@@ -116,3 +118,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_applnkdir}/System/minicom.desktop
 %{_mandir}/man1/*
+%lang(ko) %{_mandir}/ko/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
