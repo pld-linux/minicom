@@ -27,7 +27,7 @@ Patch6:		%{name}-umask.patch
 Patch7:		%{name}-drop-privs.patch
 Patch8:		%{name}-check_exec.patch
 Patch9:		%{name}-man_no_ko.patch
-Patch10:	%{name}-po_DESTDIR.patch
+Patch10:	%{name}-ac25x.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 Requires:	/usr/bin/tput
 BuildRequires:	autoconf
@@ -101,6 +101,7 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch10 -p1
 
 %build
+gettextize --copy --force
 aclocal
 autoconf
 rm -f missing
