@@ -54,10 +54,12 @@ make -C src install R=$RPM_BUILD_ROOT
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/minicom
 strip $RPM_BUILD_ROOT%{_bindir}/* || :
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc demos doc tables
 %attr(640,root, uucp) %config(noreplace) %verify(not size md5 mtime) /etc/minicom.users
@@ -67,11 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ascii-xfr
 %{_mandir}/man1/*
 %attr(644,root,root) %config(missingok) /etc/X11/wmconfig/minicom
-
-%lang(fi) %{_datadir}/locale/fi*/LC_MESSAGES/*.mo
-%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/*.mo
-%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/*.mo
-%lang(pt) %{_datadir}/locale/pt*/LC_MESSAGES/*.mo
 
 %changelog
 * Thu Nov 12 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
