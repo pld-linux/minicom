@@ -13,8 +13,9 @@ URL:		http://www.pp.clinet.fi/~walker
 Source0:	%{name}-%{version}.src.tar.gz
 Source1:	%{name}.wmconfig
 Patch0:		%{name}-ncurses.patch
-Patch1:		%{name}-makefile.patch
-#Patch2:		%{name}-config.patch
+Patch1:		%{name}-man.patch
+Patch2:		%{name}.patch
+Patch3:		%{name}.uninitialized.patch
 Buildroot:	/tmp/buildroot-%{name}-%{version}
 
 %description
@@ -46,7 +47,8 @@ Minicom, MSDOS Telix programýna benzeyen bir iletiþim programýdýr. Numara
 %setup -q
 %patch0 -p1 
 %patch1 -p1
-#%patch2 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 LDFLAGS=-s make -C src CC="gcc $RPM_OPT_FLAGS"
@@ -55,9 +57,10 @@ LDFLAGS=-s make -C src CC="gcc $RPM_OPT_FLAGS"
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/etc/{X11/wmconfig,profile.d,minicom}
-install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
+install -d $RPM_BUILD_ROOT{/usr/{bin,share/locale},%{_mandir}/man1}
 
-make -C src install DESTDIR="$RPM_BUILD_ROOT" 
+make -C src install R="$RPM_BUILD_ROOT" LIBDIR="/etc/minicom" MANDIR="%{_mandir}/man1"
+
 cat << EOF > $RPM_BUILD_ROOT/etc/minicom/minirc.dfl
 pu minit            ~^M~ATZ^M~
 pu mreset           ~^M~ATZ^M~
@@ -73,7 +76,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/minicom
 
 strip $RPM_BUILD_ROOT/usr/bin/* ||:
 
-bzip2 -9 $RPM_BUILD_ROOT/usr/man/man1/* demos/* doc/* tables/*
+bzip2 -9 $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -93,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/ascii-xfr
 
 %attr(644,root,root) %config(missingok) /etc/X11/wmconfig/minicom
-%attr(644,root, man) /usr/man/man1/*
+%attr(644,root, man) %{_mandir}/*
 
 %lang(fi) /usr/share/locale/fi_FI/LC_MESSAGES/*.mo
 %lang(fr) /usr/share/locale/fr/LC_MESSAGES/*.mo
@@ -101,6 +104,12 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) /usr/share/locale/pt_BR/LC_MESSAGES/*.mo
 
 %changelog
+* Tue Jun 29 1999 Michal Margula <alchemyx@pld.org.pl>
+  [1.82.1-3]
+- fixed for compiling with ncurses
+- FHS 2.0 ready
+- minor fixes in spec
+
 * Wed Feb 03 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
   [1.82.1-1d]
 - new upstream release
