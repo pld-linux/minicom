@@ -3,7 +3,7 @@ Summary(de):	TTY-Modus-Kommunikationspaket (Дhnlich Telix)
 Summary(es):	Paquete de comunicaciones modo texto a la Telix
 Summary(fi):	Tietoliikenneohjelma, kuten Telix
 Summary(fr):	Package de communication en mode terminal Ю la Telix
-Summary(pl):	Program komunikacyjny (podobny do Telix-a)
+Summary(pl):	Program komunikacyjny (podobny do Teliksa)
 Summary(pt_BR):	Pacote de comunicaГУes modo texto a la Telix
 Summary(ru):	Коммуникационный пакет типа Telix для текстового режима
 Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
@@ -105,7 +105,6 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch10 -p1
 
 %build
-rm -f missing
 %{__gettextize}
 %{__aclocal}
 %{__autoconf}
@@ -115,7 +114,6 @@ rm -f missing
 	--sysconfdir="%{_sysconfdir}/minicom"
 
 %{__make}
-# LIBDIR="%{_sysconfdir}/minicom"
 
 rm -f doc/*.old
 
@@ -171,7 +169,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README rpm-doc/{extras,doc,tables}
 
 %attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
-%attr(640,root,ttyS) %config(noreplace) %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
+%attr(640,root,ttyS) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/minicom/*
 %attr(755,root,root) /etc/profile.d/minicom.sh
 %attr(755,root,root) /etc/profile.d/minicom.csh
 
