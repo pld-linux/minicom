@@ -103,8 +103,8 @@ mv po/cs_CZ.po po/cs.po
 rm -f missing
 gettextize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--disable-static \
 	--sysconfdir="%{_sysconfdir}/minicom"
