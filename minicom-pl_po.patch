@@ -1,0 +1,12 @@
+diff -Naur minicom-2.00.0/po/pl.po minicom-2.00.0-ze-zmianami/po/pl.po
+--- minicom-2.00.0/po/pl.po	Fri Jan 24 15:10:28 2003
++++ minicom-2.00.0-ze-zmianami/po/pl.po	Fri Jan 24 15:12:15 2003
+@@ -566,7 +566,7 @@
+ 
+ #: src/config.c:1391
+ msgid " E: 9600          P: Space\n"
+-msgstr " F: 9600         P: Spacja\n"
++msgstr " E: 9600         P: Spacja\n"
+ 
+ #: src/config.c:1393
+ msgid " F: 19200                      Stopbits\n"
