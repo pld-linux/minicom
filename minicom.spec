@@ -58,15 +58,15 @@ strip $RPM_BUILD_ROOT%{_bindir}/* || :
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc demos doc tables
-%attr(640, root, uucp) %config(noreplace) %verify(not size md5 mtime) /etc/minicom.users
-%attr(2710, root, uucp) %{_bindir}/minicom
-%attr(755, root, root) %{_bindir}/runscript
-%attr(755, root, root) %{_bindir}/xminicom
-%attr(755, root, root) %{_bindir}/ascii-xfr
+%attr(640,root, uucp) %config(noreplace) %verify(not size md5 mtime) /etc/minicom.users
+%attr(2710,root, uucp) %{_bindir}/minicom
+%attr(755,root,root) %{_bindir}/runscript
+%attr(755,root,root) %{_bindir}/xminicom
+%attr(755,root,root) %{_bindir}/ascii-xfr
 %{_mandir}/man1/*
-%attr(644, root, root) %config(missingok) /etc/X11/wmconfig/minicom
+%attr(644,root,root) %config(missingok) /etc/X11/wmconfig/minicom
 
 %lang(fi) %{_datadir}/locale/fi*/LC_MESSAGES/*.mo
 %lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/*.mo
