@@ -15,8 +15,10 @@ Release:	10
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.netsonic.fi/~walker/%{name}-%{version}.src.tar.gz
+# Source0-md5:	961aca526087d3d8d46f87a321b9c45a
 Source1:	%{name}.desktop
 Source2:	%{name}-non-english-man-pages.tar.bz2
+# Source2-md5:	93ca30842bce63473004570b6b30be25
 Patch0:		%{name}-20020516-CVS.diff.gz
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-uninitialized.patch
