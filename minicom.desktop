@@ -1,10 +1,9 @@
 [Desktop Entry]
 Name=Minicom
-Name[sv]=Minicom
 Type=Application
 Comment=Terminal Emulator
 Comment[es]=Emulador de Terminal
-Comment[pl]=Emulator Terminala
+Comment[pl]=Emulator terminala
 Comment[pt]=Emulador de Terminal
 Comment[pt_BR]=Emulador de Terminal
 Comment[sv]=Terminalemulato
