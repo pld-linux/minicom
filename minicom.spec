@@ -31,7 +31,7 @@ Patch7:		%{name}-man_no_ko.patch
 Patch8:		%{name}-ac25x.patch
 Patch9:		%{name}-fi-fix.patch
 Patch10:	%{name}-ac254.patch
-URL:		http://www.netsonic.fi/~walker/minicom.html
+URL:		http://alioth.debian.org/projects/minicom/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
