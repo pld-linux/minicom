@@ -5,11 +5,10 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.0
-Release:	1
+Release:	4
 License:	GPL
 Group:		Applications/Communications
 Group(pl):	Aplikacje/Komunikacja
-URL:		http://www.pp.clinet.fi/~walker
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
 Source1:	%{name}.desktop
 Source2:	http://www.pp.clinet.fi/~walker/%{name}.FAQ
@@ -18,9 +17,12 @@ Patch1:		%{name}-man.patch
 Patch2:		%{name}.patch
 Patch3:		%{name}.uninitialized.patch
 Patch4:		%{name}-make.patch
+URL:		http://www.pp.clinet.fi/~walker/minicom.html
+BuildRequires:	ncurses-devel >= 5.0
 Buildroot:	/tmp/%{name}-%{version}-root
 
-%define		_applnkdir	%{_prefix}/X11R6/share/applnk
+%define		_applnkdir	/usr/X11R6/share/applnk
+
 %description
 Minicom is a communications program that resembles the MSDOS Telix
 somewhat. It has a dialing directory, color, full ANSI and VT100 emulation,
@@ -39,7 +41,7 @@ VT100, un langage de script externe et plus encore.
 %description -l pl
 Minicom jest programem komunikacyjnym, przypominaj±cym DOSowy program
 Telix. Posiada ksi±¿kê telefoniczn±, emulacjê terminali ANSI i VT100,
-zewnêtrzny jêzyk skryptowy, obs³ugê kolorów i wiele innych zalet.
+zewnêtrzny jêzyk skryptowy, obs³ugê kolorów i wiele innych w³asno¶ci.
 
 %description -l tr
 Minicom, MSDOS Telix programýna benzeyen bir iletiþim programýdýr. Numara
@@ -61,9 +63,9 @@ make -C src LIBDIR="%{_sysconfdir}/minicom"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom}
-install -d $RPM_BUILD_ROOT%{_applnkdir}
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom} \
+	$RPM_BUILD_ROOT%{_applnkdir}/Networking \
+	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
 make -C src DESTDIR="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1" install
 
@@ -78,7 +80,7 @@ MINICOM="-c on -m -L"
 export MINICOM
 EOF
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/minicom.desktop
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Networking
 install %{SOURCE2} .
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/* \
@@ -103,5 +105,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xminicom
 %attr(755,root,root) %{_bindir}/ascii-xfr
 
-%{_applnkdir}/minicom.desktop
+%{_applnkdir}/Networking/minicom.desktop
 %{_mandir}/man1/*
