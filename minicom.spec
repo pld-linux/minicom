@@ -5,7 +5,7 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.1
-Release:	8
+Release:	10
 License:	GPL
 Group:		Applications/Communications
 Group(de):	Applikationen/Kommunikation
