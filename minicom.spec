@@ -11,7 +11,7 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.00.0
-Release:	5
+Release:	7
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
@@ -156,6 +156,7 @@ install extras/tables/mc* $RPM_BUILD_ROOT/tmp/tables
 rm -f $RPM_BUILD_ROOT/tmp/*/Makefile*
 gzip -9nf $RPM_BUILD_ROOT/tmp/{extras,doc,tables}/*
 
+rm -f $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
 %find_lang minicom
 
 %clean
