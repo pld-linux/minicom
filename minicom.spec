@@ -11,7 +11,7 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
@@ -122,7 +122,7 @@ rm -f doc/*.old
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/profile.d,%{_sysconfdir}/minicom} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
 %{__make} DESTDIR="$RPM_BUILD_ROOT" \
@@ -148,7 +148,7 @@ if ( "`/usr/bin/tput colors`" != "-1" ) \
 	setenv MINICOM "\$MINICOM -c on"
 EOF
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
@@ -181,7 +181,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xminicom
 %attr(755,root,root) %{_bindir}/ascii-xfr
 
-%{_applnkdir}/System/minicom.desktop
+%{_desktopdir}/minicom.desktop
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
 %lang(ko) %{_mandir}/ko/man1/*
