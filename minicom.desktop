@@ -11,5 +11,5 @@ Comment[sv]=Terminalemulato
 Exec=minicom
 Terminal=true
 Icon=minicom.png
-Categories=Application;System;
+Categories=TerminalEmulator;
 # vi: encoding=utf-8
