@@ -1,5 +1,5 @@
---- minicom-1.83.1/src/dial.c~	Wed May 10 20:40:21 2000
-+++ minicom-1.83.1/src/dial.c	Fri Apr 13 22:34:17 2001
+--- minicom-2.00.0/src/dial.c~	Wed May 10 20:40:21 2000
++++ minicom-2.00.0/src/dial.c	Fri Apr 13 22:34:17 2001
 @@ -28,6 +28,8 @@
  #include "minicom.h"
  #include "intl.h"
@@ -9,13 +9,13 @@
  #if VC_MUSIC
  #  if defined(__linux__)
  #    include <sys/ioctl.h>
---- minicom-1.83.1/src/common.c~	Mon Apr  5 14:48:13 1999
-+++ minicom-1.83.1/src/common.c	Fri Apr 13 22:36:54 2001
+--- minicom-2.00.0/src/common.c~	Mon Apr  5 14:48:13 1999
++++ minicom-2.00.0/src/common.c	Fri Apr 13 22:36:54 2001
 @@ -23,6 +23,7 @@
  #include "port.h" 
  #include "minicom.h"
  #include <stdarg.h>
 +#include <time.h>
- /* #include "intl.h" */
  
  #if _HAVE_MACROS
+ /* Prefix a non-absolute file with the home directory. */
