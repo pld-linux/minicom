@@ -11,7 +11,7 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.00.0
-Release:	8
+Release:	9
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.netsonic.fi/~walker/%{name}-%{version}.src.tar.gz
@@ -27,6 +27,7 @@ Patch6:		%{name}-check_exec.patch
 Patch7:		%{name}-man_no_ko.patch
 Patch8:		%{name}-ac25x.patch
 Patch9:		%{name}-cs.patch
+Patch10:	%{name}-pl_po.patch
 URL:		http://www.netsonic.fi/~walker/minicom.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -98,6 +99,7 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch7 -p1
 %patch8 -p1
 %patch9 -p0
+%patch10 -p1
 
 %build
 mv po/cs_CZ.po po/cs.po
