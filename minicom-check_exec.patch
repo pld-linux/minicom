@@ -27,9 +27,9 @@
    enab_sig(0, 0);
    signal(SIGINT, SIG_IGN);
    (void) setcbreak(2); /* Raw, no echo */
-diff -ur minicom-2.00.0.orig/po/cs_CZ.po minicom-2.00.0/po/cs_CZ.po
---- minicom-2.00.0.orig/po/cs_CZ.po	Mon Oct  1 16:30:58 2001
-+++ minicom-2.00.0/po/cs_CZ.po	Thu May 16 15:49:56 2002
+diff -ur minicom-2.1.orig/po/cs.po minicom-2.1/po/cs.po
+--- minicom-2.1.orig/po/cs.po	Mon Oct  1 16:30:58 2001
++++ minicom-2.1/po/cs.po	Thu May 16 15:49:56 2002
 @@ -1825,6 +1825,11 @@
  msgid "%.30s %s - Press CTRL-C to quit"
  msgstr "%.30s %s - Stisknìte CTRL-C pro ukonèení"
@@ -57,9 +57,9 @@ diff -ur minicom-2.00.0.orig/po/es.po minicom-2.00.0/po/es.po
  #: src/updown.c:359
  msgid ""
  "\n"
-diff -ur minicom-2.00.0.orig/po/fi.po minicom-2.00.0/po/fi.po
---- minicom-2.00.0.orig/po/fi.po	Mon Oct  1 16:30:59 2001
-+++ minicom-2.00.0/po/fi.po	Thu May 16 15:51:31 2002
+diff -ur minicom-2.1.orig/po/fi.po minicom-2.1/po/fi.po
+--- minicom-2.1.orig/po/fi.po	Mon Oct  1 16:30:59 2001
++++ minicom-2.1/po/fi.po	Thu May 16 15:51:31 2002
 @@ -1052,6 +1052,11 @@
  msgid "upload"
  msgstr "lähetys"
@@ -69,9 +69,9 @@ diff -ur minicom-2.00.0.orig/po/fi.po minicom-2.00.0/po/fi.po
 +msgid "Error executing `%s'"
 +msgstr ""
 +
- #: src/file.c:371
+ #: src/file.c:357
+ #, c-format
  msgid "Directory: %%-%ds"
- msgstr "Hakemisto: %%-%ds"
 diff -ur minicom-2.00.0.orig/po/fr.po minicom-2.00.0/po/fr.po
 --- minicom-2.00.0.orig/po/fr.po	Mon Oct  1 16:30:59 2001
 +++ minicom-2.00.0/po/fr.po	Thu May 16 15:51:02 2002

@@ -22,14 +22,14 @@ Source2:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-fromsnap.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-uninitialized.patch
+Patch3:		%{name}-pl_po.patch
 Patch4:		%{name}-umask.patch
 Patch5:		%{name}-drop-privs.patch
 Patch6:		%{name}-check_exec.patch
 Patch7:		%{name}-man_no_ko.patch
 Patch8:		%{name}-ac25x.patch
-Patch10:	%{name}-pl_po.patch
-Patch11:	%{name}-fi-fix.patch
-Patch12:	%{name}-ac254.patch
+Patch9:		%{name}-fi-fix.patch
+Patch10:	%{name}-ac254.patch
 URL:		http://www.netsonic.fi/~walker/minicom.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -94,14 +94,14 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 %patch4 -p1
 %patch5 -p1
-#%patch6 -p1	-- needs update
-#%patch7 -p1	-- needs update
+%patch6 -p1
+%patch7 -p1
 %patch8 -p1
-#%patch10 -p1	-- needs update
-#%patch11 -p1	-- needs update
-%patch12 -p1
+%patch9 -p1
+%patch10 -p1
 
 %build
 rm -f missing
