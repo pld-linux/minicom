@@ -9,3 +9,4 @@ Comment[pt_BR]=Emulador de Terminal
 Comment[sv]=Terminalemulato
 Exec=minicom
 Terminal=1
+# vi: encoding=utf-8
