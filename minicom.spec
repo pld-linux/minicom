@@ -19,16 +19,14 @@ Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source2-md5:	93ca30842bce63473004570b6b30be25
-Patch0:		%{name}-20020516-CVS.diff.gz
+Patch0:		%{name}-fromsnap.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-uninitialized.patch
-Patch3:		%{name}-time.patch
 Patch4:		%{name}-umask.patch
 Patch5:		%{name}-drop-privs.patch
 Patch6:		%{name}-check_exec.patch
 Patch7:		%{name}-man_no_ko.patch
 Patch8:		%{name}-ac25x.patch
-Patch9:		%{name}-cs.patch
 Patch10:	%{name}-pl_po.patch
 Patch11:	%{name}-fi-fix.patch
 Patch12:	%{name}-ac254.patch
@@ -93,18 +91,16 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 %patch4 -p1
 %patch5 -p1
-#%patch6 -p1
-#%patch7 -p1
+#%patch6 -p1	-- needs update
+#%patch7 -p1	-- needs update
 %patch8 -p1
-#%patch9 -p0
-#%patch10 -p1
-#%patch11 -p1
+#%patch10 -p1	-- needs update
+#%patch11 -p1	-- needs update
 %patch12 -p1
 
 %build
@@ -156,11 +152,11 @@ bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 # Prepare directories with doc files
 # (nasty hack to avoid Makefiles & have docs splitted into dirs)
-install -d $RPM_BUILD_ROOT/tmp/{extras,doc,tables}
-install extras/[hsu]* $RPM_BUILD_ROOT/tmp/extras
-install doc/* $RPM_BUILD_ROOT/tmp/doc
-install extras/tables/mc* $RPM_BUILD_ROOT/tmp/tables
-rm -f $RPM_BUILD_ROOT/tmp/*/Makefile*
+install -d rpm-doc/{extras,doc,tables}
+install extras/[hsu]* rpm-doc/extras
+install doc/* rpm-doc/doc
+install extras/tables/mc* rpm-doc/tables
+rm -f rpm-doc/doc/Makefile*
 
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
 %find_lang minicom
@@ -170,10 +166,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f minicom.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog INSTALL README $RPM_BUILD_ROOT/tmp/{extras,doc,tables}/*
+%doc AUTHORS ChangeLog README rpm-doc/{extras,doc,tables}
 
 %attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
-%attr(640,root,ttyS) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
+%attr(640,root,ttyS) %config(noreplace) %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
 %attr(755,root,root) /etc/profile.d/minicom.sh
 %attr(755,root,root) /etc/profile.d/minicom.csh
 
