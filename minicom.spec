@@ -5,7 +5,7 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.1
-Release:	7
+Release:	8
 License:	GPL
 Group:		Applications/Communications
 Group(de):	Applikationen/Kommunikation
@@ -20,6 +20,7 @@ Patch4:		%{name}-make.patch
 Patch5:		%{name}-lrzsz.patch
 Patch6:		%{name}-time.patch
 Patch7:		%{name}-logging.patch
+Patch8:		%{name}-ko.patch
 URL:		http://www.pp.clinet.fi/~walker/minicom.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,6 +61,7 @@ script gibi özellikleri vardýr.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 %{__make} -C src LIBDIR="%{_sysconfdir}/minicom"
@@ -79,7 +81,6 @@ pu mreset           ~^M~ATZ^M~
 EOF
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/profile.d/minicom.sh
-#!/bin/bash
 MINICOM="-c on -m -L"
 export MINICOM
 EOF
