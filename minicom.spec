@@ -5,7 +5,7 @@ Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
 Version:	1.83.1
-Release:	12
+Release:	13
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.pp.clinet.fi/~walker/%{name}-%{version}.src.tar.gz
@@ -90,7 +90,10 @@ pu mreset           ~^M~ATZ^M~
 EOF
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/profile.d/minicom.sh
-MINICOM="-c on -m -L"
+MINICOM="-L"
+if [ "\$TERM" = linux -o "\$TERM" = xterm-color -o "\$TERM" = vt220 ] ; then
+	MINICOM="\$MINICOM -c on"
+fi
 export MINICOM
 EOF
 
