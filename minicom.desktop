@@ -1,8 +1,7 @@
 [Desktop Entry]
-Name=minicom
+Name=Minicom
+Type=Application
 Comment=Terminal Emulator
 Comment[pl]=Emulator Terminala
 Exec=minicom
 Terminal=1
-Type=Networking
-Type[pl]=Sieæ
