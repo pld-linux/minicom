@@ -52,7 +52,7 @@ install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/{bin,man/man1}}
 make -C src install R=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/minicom
-strip $RPM_BUILD_ROOT/usr/bin/* || :
+strip $RPM_BUILD_ROOT%{_bindir}/* || :
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,10 +61,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 %doc demos doc tables
 %attr(640, root, uucp) %config(noreplace) %verify(not size md5 mtime) /etc/minicom.users
-%attr(2710, root, uucp) /usr/bin/minicom
-%attr(755, root, root) /usr/bin/runscript
-%attr(755, root, root) /usr/bin/xminicom
-%attr(755, root, root) /usr/bin/ascii-xfr
+%attr(2710, root, uucp) %{_bindir}/minicom
+%attr(755, root, root) %{_bindir}/runscript
+%attr(755, root, root) %{_bindir}/xminicom
+%attr(755, root, root) %{_bindir}/ascii-xfr
 %{_mandir}/man1/*
 %attr(644, root, root) %config(missingok) /etc/X11/wmconfig/minicom
 
