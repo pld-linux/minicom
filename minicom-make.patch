@@ -1,0 +1,15 @@
+diff -Naur minicom-1.83.0/src/Makefile minicom-1.83.0-new/src/Makefile
+--- minicom-1.83.0/src/Makefile	Fri Feb 18 15:06:08 2000
++++ minicom-1.83.0-new/src/Makefile	Fri Feb 18 15:05:51 2000
+@@ -185,9 +185,9 @@
+ SOBJS	= script.o sysdep1.o common.o
+ 
+ # fmg 8/22/97: merge in new OPFLAGS...
+-CFLAGS	= $(FLAGS) $(OPFLAGS) -DLIBDIR=\"$(LIBDIR)\"
++CFLAGS	= $(RPM_OPT_FLAGS) $(FLAGS) $(OPFLAGS) -DLIBDIR=\"$(LIBDIR)\"
+ 
+-R	= $(ROOTDIR)
++R	= $(DESTDIR)
+ 
+ all:		$(PROGS) $(PO)
+ 
