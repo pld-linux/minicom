@@ -94,8 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc demos doc tables
 
-%attr(751,root,root) %dir %{_sysconfdir}/minicom
-%attr(644,root,root) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
+%attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
+%attr(640,root,ttyS) %config %verify(not size md5 mtime) %{_sysconfdir}/minicom/*
 %attr(755,root,root) %{_sysconfdir}/profile.d/minicom.sh
 
 %attr(755,root,root) %{_bindir}/minicom
