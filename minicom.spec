@@ -17,6 +17,7 @@ Patch0:		%{name}-ncurses.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}.patch
 Patch3:		%{name}.uninitialized.patch
+Patch4:		%{name}-make.patch
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define		_applnkdir	%{_prefix}/X11R6/share/applnk
@@ -51,10 +52,11 @@ Minicom, MSDOS Telix programýna benzeyen bir iletiþim programýdýr. Numara
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
-CFLAGS="$RPM_OPT_FLAGS" make -C src
+make -C src LIBDIR="%{_sysconfdir}/minicom"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -63,7 +65,7 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/{profile.d,minicom}
 install -d $RPM_BUILD_ROOT%{_applnkdir}
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
-make -C src install R="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1"
+make -C src DESTDIR="$RPM_BUILD_ROOT" LIBDIR="%{_sysconfdir}/minicom" MANDIR="%{_mandir}/man1" install
 
 cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/minicom/minirc.dfl
 pu minit            ~^M~ATZ^M~
@@ -78,8 +80,6 @@ EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/minicom.desktop
 install %{SOURCE2} .
-
-strip $RPM_BUILD_ROOT%{_bindir}/* ||:
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/* \
 	minicom.FAQ
