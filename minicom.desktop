@@ -5,6 +5,7 @@ Type=Application
 Comment=Terminal Emulator
 Comment[es]=Emulador de Terminal
 Comment[pl]=Emulator Terminala
+Comment[pt]=Emulador de Terminal
 Comment[pt_BR]=Emulador de Terminal
 Comment[sv]=Terminalemulato
 Exec=minicom
