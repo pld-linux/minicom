@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755, root, root) /usr/bin/runscript
 %attr(755, root, root) /usr/bin/xminicom
 %attr(755, root, root) /usr/bin/ascii-xfr
-%attr(644, root,  man) %{_mandir}/man1/*
+%{_mandir}/man1/*
 %attr(644, root, root) %config(missingok) /etc/X11/wmconfig/minicom
 
 %lang(fi) /usr/share/locale/fi*/LC_MESSAGES/*.mo
