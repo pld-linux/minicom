@@ -57,7 +57,7 @@ LDFLAGS=-s make -C src CC="gcc $RPM_OPT_FLAGS"
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/etc/{X11/wmconfig,profile.d,minicom}
-install -d $RPM_BUILD_ROOT{/usr/{bin,share/locale},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale,%{_mandir}/man1}
 
 make -C src install R="$RPM_BUILD_ROOT" LIBDIR="/etc/minicom" MANDIR="%{_mandir}/man1"
 
@@ -74,14 +74,16 @@ EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/minicom
 
-strip $RPM_BUILD_ROOT/usr/bin/* ||:
+strip $RPM_BUILD_ROOT%{_bindir}/* ||:
 
-bzip2 -9 $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* demos/* doc/* tables/*
+
+%find_lang minicom
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f minicom.lang
 %defattr(644,root,root,755)
 %doc demos doc tables
 
@@ -89,16 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(640,root,root) %config %verify(not size md5 mtime) /etc/minicom/*
 %attr(755,root,root) /etc/profile.d/minicom.sh
 
-%attr(755,root,root) /usr/bin/minicom
+%attr(755,root,root) %{_bindir}/minicom
 
-%attr(755,root,root) /usr/bin/runscript
-%attr(755,root,root) /usr/bin/xminicom
-%attr(755,root,root) /usr/bin/ascii-xfr
+%attr(755,root,root) %{_bindir}/runscript
+%attr(755,root,root) %{_bindir}/xminicom
+%attr(755,root,root) %{_bindir}/ascii-xfr
 
-%attr(644,root,root) %config(missingok) /etc/X11/wmconfig/minicom
-%attr(644,root, man) %{_mandir}/man1/*
-
-%lang(fi) /usr/share/locale/fi_FI/LC_MESSAGES/*.mo
-%lang(fr) /usr/share/locale/fr/LC_MESSAGES/*.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/*.mo
-%lang(pt) /usr/share/locale/pt_BR/LC_MESSAGES/*.mo
+%config(missingok) /etc/X11/wmconfig/minicom
+%{_mandir}/man1/*
