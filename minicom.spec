@@ -66,7 +66,7 @@ MSDOS. Il a un répertoire de numérotation, des couleurs, une émualtion
 ANSI et VT100, un langage de script externe et plus encore.
 
 %description -l pl
-Minicom jest programem komunikacyjnym, przypominaj±cym DOSowy program
+Minicom jest programem komunikacyjnym, przypominaj±cym DOS-owy program
 Telix. Posiada ksi±¿kê telefoniczn±, emulacjê terminali ANSI i VT100,
 zewnêtrzny jêzyk skryptowy, obs³ugê kolorów i wiele innych w³asno¶ci.
 
