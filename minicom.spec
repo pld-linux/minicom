@@ -1,3 +1,5 @@
+# TODO:
+# - move ascii-xfr to separate package (can be used by picocom and others)
 Summary:	TTY mode communications package ala Telix
 Summary(de):	TTY-Modus-Kommunikationspaket (ähnlich Telix)
 Summary(es):	Paquete de comunicaciones modo texto a la Telix
