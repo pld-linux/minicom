@@ -13,7 +13,7 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.1
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
@@ -129,23 +129,23 @@ install -d $RPM_BUILD_ROOT{/etc/profile.d,%{_sysconfdir}/minicom} \
 	LIBDIR="%{_sysconfdir}/minicom" \
 	MANDIR="%{_mandir}/man1" install
 
-cat << EOF > $RPM_BUILD_ROOT%{_sysconfdir}/minicom/minirc.dfl
+cat << 'EOF' > $RPM_BUILD_ROOT%{_sysconfdir}/minicom/minirc.dfl
 pu minit            ~^M~ATZ^M~
 pu mreset           ~^M~ATZ^M~
 EOF
 
-cat << EOF > $RPM_BUILD_ROOT/etc/profile.d/minicom.sh
+cat << 'EOF' > $RPM_BUILD_ROOT/etc/profile.d/minicom.sh
 MINICOM="-L"
 if [ "`/usr/bin/tput colors`" != "-1" ] ; then
-	MINICOM="\$MINICOM -c on"
+	MINICOM="$MINICOM -c on"
 fi
 export MINICOM
 EOF
 
-cat << EOF > $RPM_BUILD_ROOT/etc/profile.d/minicom.csh
+cat << 'EOF' > $RPM_BUILD_ROOT/etc/profile.d/minicom.csh
 setenv MINICOM "-L"
 if ( "`/usr/bin/tput colors`" != "-1" ) \
-	setenv MINICOM "\$MINICOM -c on"
+	setenv MINICOM "$MINICOM -c on"
 EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
