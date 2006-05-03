@@ -13,7 +13,7 @@ Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
 Version:	2.1
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
@@ -136,7 +136,7 @@ EOF
 
 cat << 'EOF' > $RPM_BUILD_ROOT/etc/profile.d/minicom.sh
 MINICOM="-L"
-if [ "`/usr/bin/tput colors`" != "-1" ] ; then
+if [ "$TERM" ] && [ "`/usr/bin/tput colors`" != "-1" ] ; then
 	MINICOM="$MINICOM -c on"
 fi
 export MINICOM
@@ -144,8 +144,10 @@ EOF
 
 cat << 'EOF' > $RPM_BUILD_ROOT/etc/profile.d/minicom.csh
 setenv MINICOM "-L"
-if ( "`/usr/bin/tput colors`" != "-1" ) \
-	setenv MINICOM "$MINICOM -c on"
+if ( $?TERM ) then
+	if ( "`/usr/bin/tput colors`" != "-1" ) \
+		setenv MINICOM "$MINICOM -c on"
+endif
 EOF
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
