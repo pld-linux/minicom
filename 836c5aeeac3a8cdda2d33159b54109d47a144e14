@@ -1,0 +1,3 @@
+- bump to relese 4,
+- remove unused man_warn, lrzsz patches,
+- minor cleanups (do not use %{_sysconfdir} macro in /etc/profile.d path).
