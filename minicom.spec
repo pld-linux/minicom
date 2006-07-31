@@ -38,6 +38,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	sed >= 4.0
 Requires:	/usr/bin/tput
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -105,6 +106,7 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+sed 's/getline(/gethistline(/g' -i src/minicom.c
 
 %build
 %{__gettextize}
