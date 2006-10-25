@@ -1,0 +1,11 @@
+--- minicom-2.2/configure.in.orig	2006-10-25 20:23:35.682415000 +0200
++++ minicom-2.2/configure.in	2006-10-25 20:29:37.721041250 +0200
+@@ -124,7 +124,7 @@
+ fi
+ 
+ dnl Set of available languages.
+-ALL_LINGUAS="cs da de es fr fi hu ja no pl pt_BR ro ru rw sv vi zh_TW"
++ALL_LINGUAS="cs da de es fr fi hu ja nb pl pt_BR ro ru rw sv vi zh_TW"
+ 
+ dnl Checks for programs.
+ AM_GNU_GETTEXT([external])
