@@ -161,12 +161,15 @@ bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 # Prepare directories with doc files
 # (nasty hack to avoid Makefiles & have docs splitted into dirs)
 install -d rpm-doc/{extras,doc,tables}
-install extras/[hsu]* rpm-doc/extras
-install doc/* rpm-doc/doc
-install extras/tables/mc* rpm-doc/tables
+cp -a extras/[hsu]* rpm-doc/extras
+cp -a doc/* rpm-doc/doc
+cp -a extras/tables/mc* rpm-doc/tables
 rm -f rpm-doc/doc/Makefile*
 
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
+rm -f $RPM_BUILD_ROOT%{_mandir}/README.minicom-non-english-man-pages
+rm -f $RPM_BUILD_ROOT%{_mandir}/minicom-pld_path.diff
+
 %find_lang minicom
 
 %clean
