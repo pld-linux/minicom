@@ -1,0 +1,12 @@
+--- minicom-2.2/src/intl.h.orig	2003-03-30 20:55:51.000000000 +0200
++++ minicom-2.2/src/intl.h	2006-10-25 21:19:29.796034250 +0200
+@@ -2,8 +2,7 @@
+ 
+ #ifdef HAVE_LOCALE_H
+ # include <locale.h>
+-#endif
+-#if !HAVE_SETLOCALE
++#else
+ # define setlocale(Category, Locale) /* empty */
+ #endif
+ 
