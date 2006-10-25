@@ -12,31 +12,31 @@ Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
 Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
 Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
 Name:		minicom
-Version:	2.1
-Release:	6
+Version:	2.2
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://alioth.debian.org/download.php/123/%{name}-%{version}.tar.gz
-# Source0-md5:	1c8f3b247c38fb16c3c2170df9fc102a
+#Source0Download: http://alioth.debian.org/project/showfiles.php?group_id=30018
+Source0:	http://alioth.debian.org/download.php/1806/%{name}-%{version}.tar.gz
+# Source0-md5:	13933c8777839f00e3730df23599dc93
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	93ca30842bce63473004570b6b30be25
 Patch0:		%{name}-fromsnap.patch
 Patch1:		%{name}-man.patch
-Patch2:		%{name}-uninitialized.patch
-Patch3:		%{name}-pl_po.patch
-Patch4:		%{name}-umask.patch
-Patch5:		%{name}-drop-privs.patch
-Patch6:		%{name}-check_exec.patch
-Patch7:		%{name}-man_no_ko.patch
-Patch8:		%{name}-ac25x.patch
-Patch9:		%{name}-fi-fix.patch
-Patch10:	%{name}-ac254.patch
+Patch2:		%{name}-pl_po.patch
+Patch3:		%{name}-umask.patch
+Patch4:		%{name}-drop-privs.patch
+Patch5:		%{name}-check_exec.patch
+Patch6:		%{name}-man_no_ko.patch
+Patch7:		%{name}-tinfo.patch
+Patch8:		%{name}-locale-names.patch
+Patch9:		%{name}-setlocale.patch
 URL:		http://alioth.debian.org/projects/minicom/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.7
+BuildRequires:	gettext-devel >= 0.14.1
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	sed >= 4.0
 Requires:	/usr/bin/tput
@@ -105,16 +105,18 @@ Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
-%patch10 -p1
 sed 's/getline(/gethistline(/g' -i src/minicom.c
+
+mv -f po/{no,nb}.po
+rm -f po/stamp-po
 
 %build
 %{__gettextize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
-	--disable-static \
 	--sysconfdir="%{_sysconfdir}/minicom"
 
 %{__make}
@@ -137,7 +139,7 @@ pu mreset           ~^M~ATZ^M~
 EOF
 
 cat << 'EOF' > $RPM_BUILD_ROOT/etc/profile.d/minicom.sh
-MINICOM="-L"
+MINICOM="-l"
 if [ "$TERM" ] && [ "`/usr/bin/tput colors 2>/dev/null`" != "-1" ] ; then
 	MINICOM="$MINICOM -c on"
 fi
@@ -145,7 +147,7 @@ export MINICOM
 EOF
 
 cat << 'EOF' > $RPM_BUILD_ROOT/etc/profile.d/minicom.csh
-setenv MINICOM "-L"
+setenv MINICOM "-l"
 if ( $?TERM ) then
 	if ( "`/usr/bin/tput colors 2>/dev/null`" != "-1" ) \
 		setenv MINICOM "$MINICOM -c on"
