@@ -1,0 +1,11 @@
+--- minicom-2.00.0/configure.in.orig	Fri May 17 21:01:23 2002
++++ minicom-2.00.0/configure.in	Fri May 17 21:07:20 2002
+@@ -240,7 +240,7 @@
+ 
+ dnl Checks for library functions.
+ AC_TYPE_SIGNAL
+-AM_FUNC_ERROR_AT_LINE
++AC_FUNC_ERROR_AT_LINE
+ AC_FUNC_CLOSEDIR_VOID
+ AM_WITH_DMALLOC
+ AC_CHECK_FUNCS(getcwd getwd strerror strstr vsnprintf vprintf)
