@@ -1,10 +1,10 @@
---- minicom-1.83.1/src/config.c.umask	Tue Mar 27 18:12:28 2001
-+++ minicom-1.83.1/src/config.c	Tue Mar 27 18:15:02 2001
-@@ -1232,6 +1232,7 @@
-   	}
-   	writepars(fp, 1);
- 	fclose(fp);
-+	chmod( parfile, (mode_t) 0644 );
- 	werror(_("Configuration saved"));
+--- minicom-2.2/src/config.c.orig	2006-04-02 11:52:30.000000000 +0200
++++ minicom-2.2/src/config.c	2006-10-25 19:55:01.215267750 +0200
+@@ -1248,6 +1248,7 @@
+     }
+     writepars(fp, 1);
+     fclose(fp);
++    chmod(parfile, (mode_t)0644);
+     werror(_("Configuration saved"));
    } else {
- 	/* Mortals save their own configuration */
+     /* Mortals save their own configuration */

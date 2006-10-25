@@ -1,100 +1,81 @@
---- minicom-2.00.0.orig/src/updown.c	Sat Apr 27 02:01:07 2002
-+++ minicom-2.00.0/src/updown.c	Sat Apr 27 02:01:07 2002
-@@ -329,6 +329,8 @@
+--- minicom-2.2/src/updown.c.orig	2005-08-14 22:39:30.000000000 +0200
++++ minicom-2.2/src/updown.c	2006-10-25 20:03:31.063131250 +0200
+@@ -332,6 +332,8 @@
    }
  
-   while( udpid != m_wait(&status) );
+   while (udpid != m_wait(&status));
 +  if (status)
-+  	werror(_("Error executing `%s'"), cmdline);
++    werror(_("Error executing `%s'"), cmdline);
    if (win) {
- 	enab_sig(0, 0);
- 	signal(SIGINT, SIG_IGN);
-@@ -401,6 +403,8 @@
+     enab_sig(0, 0);
+     signal(SIGINT, SIG_IGN);
+@@ -409,6 +411,8 @@
    }
  
-   (void) m_wait(&status);
+   m_wait(&status);
 +  if (status)
-+  	werror(_("Error executing `%s'"), P_KERMIT);
++    werror(_("Error executing `%s'"), P_KERMIT);
  
    /* Restore screen and keyboard modes */
    wreturn();
-@@ -630,6 +634,8 @@
+@@ -638,6 +642,8 @@
    
    /* Collect status, and clean up. */
-   (void) m_wait(&status);
+   m_wait(&status);
 +  if (status)
-+  	werror(_("Error executing `%s'"), cmdline);
++    werror(_("Error executing `%s'"), cmdline);
    enab_sig(0, 0);
    signal(SIGINT, SIG_IGN);
-   (void) setcbreak(2); /* Raw, no echo */
-diff -ur minicom-2.1.orig/po/cs.po minicom-2.1/po/cs.po
---- minicom-2.1.orig/po/cs.po	Mon Oct  1 16:30:58 2001
-+++ minicom-2.1/po/cs.po	Thu May 16 15:49:56 2002
-@@ -1825,6 +1825,11 @@
- msgid "%.30s %s - Press CTRL-C to quit"
- msgstr "%.30s %s - Stisknìte CTRL-C pro ukonèení"
+   setcbreak(2); /* Raw, no echo */
+--- minicom-2.2/po/cs.po.orig	2006-10-16 09:55:18.000000000 +0200
++++ minicom-2.2/po/cs.po	2006-10-25 20:05:30.842617000 +0200
+@@ -1740,6 +1740,11 @@
+ msgid "download"
+ msgstr "sta¾ení"
  
-+#: src/updown.c:339 src/updown.c:412 src/updown.c:642
++#: src/updown.c:336 src/updown.c:415 src/updown.c:646
 +#, c-format
 +msgid "Error executing `%s'"
 +msgstr "Chyba pøi spu¹tìní `%s'"
 +
- #: src/updown.c:359
+ #: src/updown.c:358
  msgid ""
  "\n"
-diff -ur minicom-2.00.0.orig/po/es.po minicom-2.00.0/po/es.po
---- minicom-2.00.0.orig/po/es.po	Mon Oct  1 16:30:59 2001
-+++ minicom-2.00.0/po/es.po	Thu May 16 15:49:47 2002
-@@ -1865,6 +1865,11 @@
- msgid "%.30s %s - Press CTRL-C to quit"
- msgstr "%.30s %s - Presione CTRL-C para salir"
+--- minicom-2.2/po/es.po.orig	2006-10-16 09:55:19.000000000 +0200
++++ minicom-2.2/po/es.po	2006-10-25 20:06:07.676919000 +0200
+@@ -1764,6 +1764,11 @@
+ msgid "download"
+ msgstr "recepción"
  
-+#: src/updown.c:339 src/updown.c:412 src/updown.c:642
++#: src/updown.c:336 src/updown.c:415 src/updown.c:646
 +#, c-format
 +msgid "Error executing `%s'"
 +msgstr "Error al ejecutar `%s'"
 +
- #: src/updown.c:359
+ #: src/updown.c:358
  msgid ""
  "\n"
-diff -ur minicom-2.1.orig/po/fi.po minicom-2.1/po/fi.po
---- minicom-2.1.orig/po/fi.po	Mon Oct  1 16:30:59 2001
-+++ minicom-2.1/po/fi.po	Thu May 16 15:51:31 2002
-@@ -1052,6 +1052,11 @@
- msgid "upload"
- msgstr "lähetys"
+--- minicom-2.2/po/fr.po.orig	2006-10-16 09:55:19.000000000 +0200
++++ minicom-2.2/po/fr.po	2006-10-25 20:09:19.364898750 +0200
+@@ -1741,6 +1741,11 @@
+ msgid "download"
+ msgstr "télécharger"
  
-+#: src/updown.c:276 src/updown.c:397 src/updown.c:612
-+#, c-format
-+msgid "Error executing `%s'"
-+msgstr ""
-+
- #: src/file.c:357
- #, c-format
- msgid "Directory: %%-%ds"
-diff -ur minicom-2.00.0.orig/po/fr.po minicom-2.00.0/po/fr.po
---- minicom-2.00.0.orig/po/fr.po	Mon Oct  1 16:30:59 2001
-+++ minicom-2.00.0/po/fr.po	Thu May 16 15:51:02 2002
-@@ -1826,6 +1826,11 @@
- msgid "%.30s %s - Press CTRL-C to quit"
- msgstr "%.30s %s - Appuyez sur CTRL-C pour quitter"
- 
-+#: src/updown.c:339 src/updown.c:412 src/updown.c:642
++#: src/updown.c:336 src/updown.c:415 src/updown.c:646
 +#, c-format
 +msgid "Error executing `%s'"
 +msgstr "Erreur lors de l'exécution de `%s'"
 +
- #: src/updown.c:359
+ #: src/updown.c:358
  msgid ""
  "\n"
 diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
 --- minicom-2.00.0.orig/po/ja.po	Mon Oct  1 16:30:59 2001
 +++ minicom-2.00.0/po/ja.po	Thu May 16 15:51:20 2002
-@@ -1990,6 +1990,12 @@
+@@ -1990,6 +1990,11 @@
  msgid "%.30s %s - Press CTRL-C to quit"
  msgstr "%.30s %s - CTRL-C ¤Ç½ªÎ»¤·¤Þ¤¹"
  
-+# c-format(have percent)
 +#: src/updown.c:339 src/updown.c:412 src/updown.c:642
 +#, c-format
 +msgid "Error executing `%s'"
@@ -103,29 +84,27 @@ diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
  # c-format(wprintf)
  #: src/updown.c:359
  msgid ""
-diff -ur minicom-2.00.0.orig/po/pl.po minicom-2.00.0/po/pl.po
---- minicom-2.00.0.orig/po/pl.po	Mon Oct  1 16:31:00 2001
-+++ minicom-2.00.0/po/pl.po	Thu May 16 15:51:13 2002
-@@ -1807,6 +1807,11 @@
- msgid "%.30s %s - Press CTRL-C to quit"
- msgstr "%.30s-%s - Wci¶nij CTRL-C by wyj¶æ"
+--- minicom-2.2/po/pl.po.orig	2006-10-25 19:57:04.234956000 +0200
++++ minicom-2.2/po/pl.po	2006-10-25 20:10:05.011751500 +0200
+@@ -1751,6 +1751,11 @@
+ msgid "download"
+ msgstr "¶ci±ganie"
  
-+#: src/updown.c:339 src/updown.c:412 src/updown.c:642
++#: src/updown.c:336 src/updown.c:415 src/updown.c:646
 +#, c-format
 +msgid "Error executing `%s'"
 +msgstr "Wyst±pi³ b³±d podczas wykonywania `%s'"
 +
- #: src/updown.c:359
+ #: src/updown.c:358
  msgid ""
  "\n"
 diff -ur minicom-2.00.0.orig/po/pt_BR.po minicom-2.00.0/po/pt_BR.po
 --- minicom-2.00.0.orig/po/pt_BR.po	Mon Oct  1 16:31:00 2001
 +++ minicom-2.00.0/po/pt_BR.po	Thu May 16 15:49:01 2002
-@@ -2230,6 +2230,12 @@
+@@ -2230,6 +2230,11 @@
  msgid "%.30s %s - Press CTRL-C to quit"
  msgstr "%.30s %s - Pressione CTRL-C para sair"
  
-+#: ../updown.c:332 ../updown.c:407 ../updown.c:635
 +#: src/updown.c:339 src/updown.c:412 src/updown.c:642
 +#, c-format
 +msgid "Error executing `%s'"
@@ -134,18 +113,3 @@ diff -ur minicom-2.00.0.orig/po/pt_BR.po minicom-2.00.0/po/pt_BR.po
  # ../updown.c:352
  #: src/updown.c:359
  msgid ""
-diff -ur minicom-2.00.0.orig/po/ru.po minicom-2.00.0/po/ru.po
---- minicom-2.00.0.orig/po/ru.po	Mon Oct  1 16:31:00 2001
-+++ minicom-2.00.0/po/ru.po	Thu May 16 15:49:58 2002
-@@ -1850,6 +1850,11 @@
- msgid "%.30s %s - Press CTRL-C to quit"
- msgstr "%.30s %s - îÁÖÍÉÔÅ CTRL-C ÄÌÑ ×ÙÈÏÄÁ"
- 
-+#: src/updown.c:339 src/updown.c:412 src/updown.c:642
-+#, c-format
-+msgid "Error executing `%s'"
-+msgstr ""
-+
- #: src/updown.c:359
- msgid ""
- "\n"
