@@ -1,16 +1,16 @@
 # TODO:
 # - move ascii-xfr to separate package (can be used by picocom and others)
 Summary:	TTY mode communications package ala Telix
-Summary(de):	TTY-Modus-Kommunikationspaket (Дhnlich Telix)
-Summary(es):	Paquete de comunicaciones modo texto a la Telix
-Summary(fi):	Tietoliikenneohjelma, kuten Telix
-Summary(fr):	Package de communication en mode terminal Ю la Telix
-Summary(pl):	Program komunikacyjny (podobny do Teliksa)
-Summary(pt_BR):	Pacote de comunicaГУes modo texto a la Telix
-Summary(ru):	Коммуникационный пакет типа Telix для текстового режима
-Summary(tr):	Telix benzeri, TTY kipi iletiЧim paketi
-Summary(uk):	Комун╕кац╕йний пакет типу Telix для текстового режиму
-Summary(zh_CN):	р╩╦Жнд╠╬╫ГцФ╣д╣Вйт╫Б╣ВфВ©ьжффВ╨мжу╤кдёдБфВ║ё
+Summary(de.UTF-8):   TTY-Modus-Kommunikationspaket (ц╓hnlich Telix)
+Summary(es.UTF-8):   Paquete de comunicaciones modo texto a la Telix
+Summary(fi.UTF-8):   Tietoliikenneohjelma, kuten Telix
+Summary(fr.UTF-8):   Package de communication en mode terminal ц═ la Telix
+Summary(pl.UTF-8):   Program komunikacyjny (podobny do Teliksa)
+Summary(pt_BR.UTF-8):   Pacote de comunicaц╖ц╣es modo texto a la Telix
+Summary(ru.UTF-8):   п п╬п╪п╪я┐п╫п╦п╨п╟я├п╦п╬п╫п╫я▀п╧ п©п╟п╨п╣я┌ я┌п╦п©п╟ Telix п╢п╩я▐ я┌п╣п╨я│я┌п╬п╡п╬пЁп╬ я─п╣п╤п╦п╪п╟
+Summary(tr.UTF-8):   Telix benzeri, TTY kipi iletiе÷im paketi
+Summary(uk.UTF-8):   п п╬п╪я┐п╫я√п╨п╟я├я√п╧п╫п╦п╧ п©п╟п╨п╣я┌ я┌п╦п©я┐ Telix п╢п╩я▐ я┌п╣п╨я│я┌п╬п╡п╬пЁп╬ я─п╣п╤п╦п╪я┐
+Summary(zh_CN.UTF-8):   Д╦─Д╦╙Ф√┤Ф°╛Г∙▄И²╒Г └Х╟┐Х╞∙Х╖ёХ╟┐Е≥╗Ф▌╖Е┬╤Е≥╗Е▓▄Г╩┬Г╚╞Ф╗║Ф▀÷Е≥╗Ц─┌
 Name:		minicom
 Version:	2.2
 Release:	1
@@ -47,51 +47,51 @@ Minicom is a communications program that resembles the MSDOS Telix
 somewhat. It has a dialing directory, color, full ANSI and VT100
 emulation, an (external) scripting language and more.
 
-%description -l de
-Minicom ist ein Kommunikationsprogramm, das дhnlichkeiten mit Telix
-unter MSDOS aufweist. Es enthДlt ein WДhlverzeichnis, Farbe,
-vollstДndige ANSI- und VT100-Emulation, eine (externe) Scriptsprache
+%description -l de.UTF-8
+Minicom ist ein Kommunikationsprogramm, das ц└hnlichkeiten mit Telix
+unter MSDOS aufweist. Es enthц╓lt ein Wц╓hlverzeichnis, Farbe,
+vollstц╓ndige ANSI- und VT100-Emulation, eine (externe) Scriptsprache
 usw.
 
-%description -l es
-Minicom es un programa de comunicaciСn que se parece con el Telix del
-MSDOS. Tiene un directorio de marcado, color, emulaciСn completa ANSI
+%description -l es.UTF-8
+Minicom es un programa de comunicaciцЁn que se parece con el Telix del
+MSDOS. Tiene un directorio de marcado, color, emulaciцЁn completa ANSI
 y VT100, y un lenguaje externo de sxripts y mail.
 
-%description -l fi
-Minicom on MSDOS-TelixiД jossain mДДrin muistuttava
-tietoliikenneohjelma. Ohjelmassa on mm. puhelinluettelo, vДrit, ANSI-
+%description -l fi.UTF-8
+Minicom on MSDOS-Telixiц╓ jossain mц╓ц╓rin muistuttava
+tietoliikenneohjelma. Ohjelmassa on mm. puhelinluettelo, vц╓rit, ANSI-
 ja VT100-emulaatiot ja ulkoinen script-kieli.
 
-%description -l fr
+%description -l fr.UTF-8
 Minicom est un programme de communication ressemblant a Telix sous
-MSDOS. Il a un rИpertoire de numИrotation, des couleurs, une Иmualtion
+MSDOS. Il a un rц╘pertoire de numц╘rotation, des couleurs, une ц╘mualtion
 ANSI et VT100, un langage de script externe et plus encore.
 
-%description -l pl
-Minicom jest programem komunikacyjnym, przypominaj╠cym DOS-owy program
-Telix. Posiada ksi╠©kЙ telefoniczn╠, emulacjЙ terminali ANSI i VT100,
-zewnЙtrzny jЙzyk skryptowy, obsЁugЙ kolorСw i wiele innych wЁasno╤ci.
+%description -l pl.UTF-8
+Minicom jest programem komunikacyjnym, przypominajд┘cym DOS-owy program
+Telix. Posiada ksiд┘е╪kд≥ telefonicznд┘, emulacjд≥ terminali ANSI i VT100,
+zewnд≥trzny jд≥zyk skryptowy, obsе┌ugд≥ kolorцЁw i wiele innych wе┌asnoе⌡ci.
 
-%description -l pt_BR
-Minicom И um programa de comunicaГЦo que parece com o Telix do MSDOS.
-Tem um diretСrio de discagem, cor, emulaГЦo completa ANSI e VT100, e
+%description -l pt_BR.UTF-8
+Minicom ц╘ um programa de comunicaц╖цёo que parece com o Telix do MSDOS.
+Tem um diretцЁrio de discagem, cor, emulaц╖цёo completa ANSI e VT100, e
 uma linguagem externa de scripts e mail.
 
-%description -l ru
-Minicom - это коммуникационная программа, в чем-то похожая на MSDOS
-Telix. Она включает телефонную книгу, цвет, полную поддержку ANSI и
-VT100, внешний язык скриптов и многое другое.
+%description -l ru.UTF-8
+Minicom - я█я┌п╬ п╨п╬п╪п╪я┐п╫п╦п╨п╟я├п╦п╬п╫п╫п╟я▐ п©я─п╬пЁя─п╟п╪п╪п╟, п╡ я┤п╣п╪-я┌п╬ п©п╬я┘п╬п╤п╟я▐ п╫п╟ MSDOS
+Telix. п·п╫п╟ п╡п╨п╩я▌я┤п╟п╣я┌ я┌п╣п╩п╣я└п╬п╫п╫я┐я▌ п╨п╫п╦пЁя┐, я├п╡п╣я┌, п©п╬п╩п╫я┐я▌ п©п╬п╢п╢п╣я─п╤п╨я┐ ANSI п╦
+VT100, п╡п╫п╣я┬п╫п╦п╧ я▐п╥я▀п╨ я│п╨я─п╦п©я┌п╬п╡ п╦ п╪п╫п╬пЁп╬п╣ п╢я─я┐пЁп╬п╣.
 
-%description -l tr
-Minicom, MSDOS Telix programЩna benzeyen bir iletiЧim programЩdЩr.
-Numara Гevirme dizini, renk, tam ANSI uyumu ve VT100 ЖykЭnЭmЭ ile
-script gibi Жzellikleri vardЩr.
+%description -l tr.UTF-8
+Minicom, MSDOS Telix programд╠na benzeyen bir iletiе÷im programд╠dд╠r.
+Numara ц╖evirme dizini, renk, tam ANSI uyumu ve VT100 ц╤ykц╪nц╪mц╪ ile
+script gibi ц╤zellikleri vardд╠r.
 
-%description -l uk
-Minicom - це комун╕кац╕йна програма, чимось схожа на MSDOS Telix. Вона
-м╕стить телефонну книгу, кол╕р, повну п╕дтримку ANSI та VT100, зовн╕шю
-мову скрипт╕в та багато ╕ншого.
+%description -l uk.UTF-8
+Minicom - я├п╣ п╨п╬п╪я┐п╫я√п╨п╟я├я√п╧п╫п╟ п©я─п╬пЁя─п╟п╪п╟, я┤п╦п╪п╬я│я▄ я│я┘п╬п╤п╟ п╫п╟ MSDOS Telix. п▓п╬п╫п╟
+п╪я√я│я┌п╦я┌я▄ я┌п╣п╩п╣я└п╬п╫п╫я┐ п╨п╫п╦пЁя┐, п╨п╬п╩я√я─, п©п╬п╡п╫я┐ п©я√п╢я┌я─п╦п╪п╨я┐ ANSI я┌п╟ VT100, п╥п╬п╡п╫я√я┬я▌
+п╪п╬п╡я┐ я│п╨я─п╦п©я┌я√п╡ я┌п╟ п╠п╟пЁп╟я┌п╬ я√п╫я┬п╬пЁп╬.
 
 %prep
 %setup -q
