@@ -166,7 +166,6 @@ cp -a doc/* rpm-doc/doc
 cp -a extras/tables/mc* rpm-doc/tables
 rm -f rpm-doc/doc/Makefile*
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ja_JP.SJIS
 rm -f $RPM_BUILD_ROOT%{_mandir}/README.minicom-non-english-man-pages
 rm -f $RPM_BUILD_ROOT%{_mandir}/minicom-pld_path.diff
 
