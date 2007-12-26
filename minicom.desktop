@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Minicom
 Type=Application
 Comment=Terminal Emulator
@@ -10,6 +9,6 @@ Comment[pt_BR]=Emulador de Terminal
 Comment[sv]=Terminalemulato
 Exec=su - -c 'minicom'
 Terminal=true
-Icon=minicom.png
+Icon=minicom
 Categories=TerminalEmulator;
 # vi: encoding=utf-8
