@@ -13,7 +13,7 @@ Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
 Version:	2.2
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Communications
 #Source0Download: http://alioth.debian.org/project/showfiles.php?group_id=30018
@@ -106,6 +106,9 @@ Minicom - це комунікаційна програма, чимось схо�
 %patch8 -p1
 %patch9 -p1
 sed 's/getline(/gethistline(/g' -i src/minicom.c
+
+# avoid conflict with glibc-headers' wchar.h::wprintf
+sed 's/wprintf/my_wprintf/g' -i src/*
 
 mv -f po/{no,nb}.po
 rm -f po/stamp-po
