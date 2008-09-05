@@ -98,18 +98,17 @@ diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
  #: src/updown.c:362
  msgid ""
  "\n"
-diff -ur minicom-2.00.0.orig/po/pt_BR.po minicom-2.00.0/po/pt_BR.po
---- minicom-2.00.0.orig/po/pt_BR.po	Mon Oct  1 16:31:00 2001
-+++ minicom-2.00.0/po/pt_BR.po	Thu May 16 15:49:01 2002
-@@ -2230,6 +2230,11 @@
+--- minicom-2.3/po/pt_BR.po.orig	2008-02-24 11:49:07.000000000 +0100
++++ minicom-2.3/po/pt_BR.po	2008-09-05 18:40:12.340984794 +0200
+@@ -2065,6 +2065,11 @@
  msgid "%.30s %s - Press CTRL-C to quit"
  msgstr "%.30s %s - Pressione CTRL-C para sair"
  
-+#: src/updown.c:339 src/updown.c:412 src/updown.c:642
++#: src/updown.c:340 src/updown.c:419 src/updown.c:650
 +#, c-format
 +msgid "Error executing `%s'"
 +msgstr "Erro ao executar `%s'"
 +
- # ../updown.c:352
- #: src/updown.c:359
- msgid ""
+ # ../file.c:334 ../updown.c:243
+ #: src/updown.c:249
+ msgid "upload"
