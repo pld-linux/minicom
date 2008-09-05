@@ -38,7 +38,7 @@
 +msgid "Error executing `%s'"
 +msgstr "Chyba pøi spu¹tìní `%s'"
 +
- #: src/updown.c:358
+ #: src/updown.c:362
  msgid ""
  "\n"
 --- minicom-2.2/po/es.po.orig	2006-10-16 09:55:19.000000000 +0200
@@ -52,7 +52,7 @@
 +msgid "Error executing `%s'"
 +msgstr "Error al ejecutar `%s'"
 +
- #: src/updown.c:358
+ #: src/updown.c:362
  msgid ""
  "\n"
 --- minicom-2.2/po/fr.po.orig	2006-10-16 09:55:19.000000000 +0200
@@ -66,7 +66,7 @@
 +msgid "Error executing `%s'"
 +msgstr "Erreur lors de l'exécution de `%s'"
 +
- #: src/updown.c:358
+ #: src/updown.c:362
  msgid ""
  "\n"
 diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
@@ -95,7 +95,7 @@ diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
 +msgid "Error executing `%s'"
 +msgstr "Wyst±pi³ b³±d podczas wykonywania `%s'"
 +
- #: src/updown.c:358
+ #: src/updown.c:362
  msgid ""
  "\n"
 diff -ur minicom-2.00.0.orig/po/pt_BR.po minicom-2.00.0/po/pt_BR.po

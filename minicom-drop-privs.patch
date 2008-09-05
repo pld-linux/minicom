@@ -12,7 +12,7 @@
 @@ -1131,6 +1133,8 @@
            }
            docap = 1;
-           vt_set(addlf, -1, capfp, docap, -1, -1, -1, -1);
+           vt_set(addlf, -1, docap, -1, -1, -1, -1);
 +	  seteuid(eff_uid);
 +	  setegid(eff_gid);
            break;
