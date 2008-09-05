@@ -12,27 +12,24 @@ Summary(tr.UTF-8):	Telix benzeri, TTY kipi iletişim paketi
 Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для текстового режиму
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
-Version:	2.2
-Release:	3
+Version:	2.3
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 #Source0Download: http://alioth.debian.org/project/showfiles.php?group_id=30018
-Source0:	http://alioth.debian.org/download.php/1806/%{name}-%{version}.tar.gz
-# Source0-md5:	13933c8777839f00e3730df23599dc93
+Source0:	http://alioth.debian.org/download.php/2332/%{name}-%{version}.tar.gz
+# Source0-md5:	0ebe7a91898384ca906787cc4e2c3f25
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	93ca30842bce63473004570b6b30be25
 Patch0:		%{name}-fromsnap.patch
 Patch1:		%{name}-man.patch
-Patch2:		%{name}-pl_po.patch
-Patch3:		%{name}-umask.patch
-Patch4:		%{name}-drop-privs.patch
-Patch5:		%{name}-check_exec.patch
-Patch6:		%{name}-man_no_ko.patch
-Patch7:		%{name}-tinfo.patch
-Patch8:		%{name}-locale-names.patch
-Patch9:		%{name}-setlocale.patch
+Patch2:		%{name}-umask.patch
+Patch3:		%{name}-drop-privs.patch
+Patch4:		%{name}-check_exec.patch
+Patch5:		%{name}-man_no_ko.patch
+Patch6:		%{name}-tinfo.patch
 URL:		http://alioth.debian.org/projects/minicom/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
@@ -102,15 +99,11 @@ Minicom - це комунікаційна програма, чимось схо�
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
 sed 's/getline(/gethistline(/g' -i src/minicom.c
 
 # avoid conflict with glibc-headers' wchar.h::wprintf
 sed 's/wprintf/my_wprintf/g' -i src/*
 
-mv -f po/{no,nb}.po
 rm -f po/stamp-po
 
 %build
