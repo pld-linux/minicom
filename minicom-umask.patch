@@ -4,7 +4,7 @@
      }
      writepars(fp, 1);
      fclose(fp);
-+    chmod(parfile, (mode_t)0644);
++    chmod(parfile, (mode_t)0640);
      werror(_("Configuration saved"));
    } else {
      /* Mortals save their own configuration */
