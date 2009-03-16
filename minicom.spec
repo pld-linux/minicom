@@ -13,7 +13,7 @@ Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
 Version:	2.3
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Communications
 #Source0Download: http://alioth.debian.org/project/showfiles.php?group_id=30018
@@ -37,6 +37,7 @@ BuildRequires:	gettext-devel >= 0.14.1
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	sed >= 4.0
 Requires:	/usr/bin/tput
+Requires:	setup >= 2.6.1-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -174,8 +175,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README rpm-doc/{extras,doc,tables}
 
-%attr(750,root,ttyS) %dir %{_sysconfdir}/minicom
-%attr(640,root,ttyS) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/minicom/*
+%attr(750,root,dialout) %dir %{_sysconfdir}/minicom
+%attr(640,root,dialout) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/minicom/*
 %attr(755,root,root) /etc/profile.d/minicom.sh
 %attr(755,root,root) /etc/profile.d/minicom.csh
 
