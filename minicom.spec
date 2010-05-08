@@ -17,7 +17,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 #Source0Download: http://alioth.debian.org/project/showfiles.php?group_id=30018
-Source0:	http://alioth.debian.org/download.php/2332/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	774df678cf7cbc7bbf6bab8f60672efd
 Source1:	%{name}.desktop
 Source2:	%{name}.png
