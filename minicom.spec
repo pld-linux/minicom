@@ -98,10 +98,6 @@ Minicom - це комунікаційна програма, чимось схо�
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-sed 's/getline(/gethistline(/g' -i src/minicom.c
-
-# avoid conflict with glibc-headers' wchar.h::wprintf
-sed 's/wprintf/my_wprintf/g' -i src/*
 
 rm -f po/stamp-po
 
