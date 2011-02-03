@@ -110,7 +110,7 @@ rm -f po/stamp-po
 
 %{__make}
 
-rm -f doc/*.old
+%{__rm} doc/*.old
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -153,10 +153,10 @@ install -d rpm-doc/{extras,doc,tables}
 cp -a extras/[hsu]* rpm-doc/extras
 cp -a doc/* rpm-doc/doc
 cp -a extras/tables/mc* rpm-doc/tables
-rm -f rpm-doc/doc/Makefile*
+%{__rm} rpm-doc/doc/Makefile*
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/README.minicom-non-english-man-pages
-rm -f $RPM_BUILD_ROOT%{_mandir}/minicom-pld_path.diff
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/README.minicom-non-english-man-pages
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/minicom-pld_path.diff
 
 %find_lang minicom
 
@@ -172,14 +172,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /etc/profile.d/minicom.sh
 %attr(755,root,root) /etc/profile.d/minicom.csh
 
+%attr(755,root,root) %{_bindir}/ascii-xfr
 %attr(755,root,root) %{_bindir}/minicom
-
 %attr(755,root,root) %{_bindir}/runscript
 %attr(755,root,root) %{_bindir}/xminicom
-%attr(755,root,root) %{_bindir}/ascii-xfr
 
 %{_desktopdir}/minicom.desktop
-%{_pixmapsdir}/*
-%{_mandir}/man1/*
-%lang(ko) %{_mandir}/ko/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
+%{_pixmapsdir}/minicom.png
+%{_mandir}/man1/ascii-xfr.1*
+%{_mandir}/man1/minicom.1*
+%{_mandir}/man1/runscript.1*
+%{_mandir}/man1/xminicom.1*
+%lang(ko) %{_mandir}/ko/man1/*.1*
+%lang(pl) %{_mandir}/pl/man1/*.1*
