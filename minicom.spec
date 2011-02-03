@@ -12,22 +12,21 @@ Summary(tr.UTF-8):	Telix benzeri, TTY kipi iletişim paketi
 Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для текстового режиму
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
-Version:	2.4
+Version:	2.5
 Release:	1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://alioth.debian.org/download.php/3195/%{name}-%{version}.tar.gz
-# Source0-md5:	774df678cf7cbc7bbf6bab8f60672efd
+Source0:	http://alioth.debian.org/download.php/3487/%{name}-%{version}.tar.gz
+# Source0-md5:	a5117d4d21e2c9e825edb586ee2fe8d2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	93ca30842bce63473004570b6b30be25
 Patch0:		%{name}-fromsnap.patch
 Patch1:		%{name}-man.patch
-Patch2:		%{name}-umask.patch
-Patch3:		%{name}-check_exec.patch
-Patch4:		%{name}-man_no_ko.patch
-Patch5:		%{name}-tinfo.patch
+Patch2:		%{name}-check_exec.patch
+Patch3:		%{name}-man_no_ko.patch
+Patch4:		%{name}-tinfo.patch
 URL:		http://alioth.debian.org/projects/minicom/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
@@ -91,12 +90,12 @@ Minicom - це комунікаційна програма, чимось схо�
 
 %prep
 %setup -q
+%undos po/pt_BR.po
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
 
 rm -f po/stamp-po
 
