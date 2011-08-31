@@ -13,7 +13,7 @@ Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
 Version:	2.5
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://alioth.debian.org/download.php/3487/%{name}-%{version}.tar.gz
