@@ -38,7 +38,7 @@
 +msgid "Error executing `%s'"
 +msgstr "Chyba pøi spu¹tìní `%s'"
 +
- #: src/updown.c:426
+ #: src/updown.c:430
  msgid ""
  "\n"
 --- minicom-2.2/po/es.po.orig	2006-10-16 09:55:19.000000000 +0200
@@ -52,7 +52,7 @@
 +msgid "Error executing `%s'"
 +msgstr "Error al ejecutar `%s'"
 +
- #: src/updown.c:426
+ #: src/updown.c:430
  msgid ""
  "\n"
 --- minicom-2.2/po/fr.po.orig	2006-10-16 09:55:19.000000000 +0200
@@ -66,7 +66,7 @@
 +msgid "Error executing `%s'"
 +msgstr "Erreur lors de l'exécution de `%s'"
 +
- #: src/updown.c:426
+ #: src/updown.c:430
  msgid ""
  "\n"
 diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
@@ -82,7 +82,7 @@ diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
 +msgstr "¼Â¹Ô¥¨¥é¡¼ `%s'"
 +
  # c-format(wprintf)
- #: src/updown.c:426
+ #: src/updown.c:430
  msgid ""
 --- minicom-2.2/po/pl.po.orig	2006-10-25 19:57:04.234956000 +0200
 +++ minicom-2.2/po/pl.po	2006-10-25 20:10:05.011751500 +0200
@@ -95,7 +95,7 @@ diff -ur minicom-2.00.0.orig/po/ja.po minicom-2.00.0/po/ja.po
 +msgid "Error executing `%s'"
 +msgstr "Wyst±pi³ b³±d podczas wykonywania `%s'"
 +
- #: src/updown.c:426
+ #: src/updown.c:430
  msgid ""
  "\n"
 --- minicom-2.3/po/pt_BR.po.orig	2008-02-24 11:49:07.000000000 +0100
