@@ -27,6 +27,7 @@ Patch1:		%{name}-man.patch
 Patch2:		%{name}-check_exec.patch
 Patch3:		%{name}-man_no_ko.patch
 Patch4:		%{name}-tinfo.patch
+Patch5:		%{name}-pl.po-update.patch
 URL:		http://alioth.debian.org/projects/minicom/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
@@ -96,8 +97,9 @@ Minicom - це комунікаційна програма, чимось схо�
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
-rm -f po/stamp-po
+%{__rm} po/stamp-po
 
 %build
 %{__gettextize}

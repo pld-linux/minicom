@@ -1,0 +1,260 @@
+--- minicom-2.6/po/pl.po.orig	2012-01-03 17:25:42.469110954 +0100
++++ minicom-2.6/po/pl.po	2012-01-03 20:13:00.779447073 +0100
+@@ -1,14 +1,14 @@
+ # Polish translation for minicom.
+ # This file is distributed under the same license as the minicom package.
+ # Copyright (c) 1998-2000 Arkadiusz Mi¶kiewicz <misiek@pld.org.pl>
+-# Jakub Bogusz <qboosh@pld-linux.org>, 2003-2008.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2003-2012.
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: minicom 2.3-rc1\n"
++"Project-Id-Version: minicom 2.6\n"
+ "Report-Msgid-Bugs-To: minicom-devel@lists.alioth.debian.org\n"
+ "POT-Creation-Date: 2011-12-27 23:41+0100\n"
+-"PO-Revision-Date: 2008-01-15 20:10+0100\n"
++"PO-Revision-Date: 2012-01-03 19:02+0100\n"
+ "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
+ "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "Language: pl\n"
+@@ -229,9 +229,8 @@
+ msgstr "Ustawienia modemu i dzwonienia"
+ 
+ #: src/config.c:690
+-#, fuzzy
+ msgid "    Return or Esc to exit. Edit A+B to get defaults."
+-msgstr "    (Enter lub Esc by wyj¶æ)"
++msgstr "    Enter lub Esc aby wyj¶æ. Modyfikacja A+B podaje warto¶ci domy¶lne."
+ 
+ #: src/config.c:828
+ msgid " A - Command key is         :"
+@@ -397,34 +396,28 @@
+ msgstr "Wczytywanie makr"
+ 
+ #: src/config.c:1163
+-#, fuzzy
+ msgid " A -      Terminal emulation :"
+-msgstr " A - Emulacja terminala   :"
++msgstr " A -      Emulacja terminala :"
+ 
+ #: src/config.c:1164
+-#, fuzzy
+ msgid " B -     Backspace key sends :"
+-msgstr " B - Backspace wysy³a     :"
++msgstr " B -        Backspace wysy³a :"
+ 
+ #: src/config.c:1165
+-#, fuzzy
+ msgid " C -          Status line is :"
+-msgstr " C - Linia statusu        :"
++msgstr " C -           Linia statusu :"
+ 
+ #: src/config.c:1166
+-#, fuzzy
+ msgid " D -   Newline tx delay (ms) :"
+-msgstr " D - Opó¼nienie linii (ms):"
++msgstr " D - Opó¼nienie tx linii (ms):"
+ 
+ #: src/config.c:1167
+-#, fuzzy
+ msgid " E -          ENQ answerback :"
+-msgstr " E - odpowied¼ zwrotna ENQ:"
++msgstr " E -   odpowied¼ zwrotna ENQ :"
+ 
+ #: src/config.c:1168
+-#, fuzzy
+ msgid " F - Character tx delay (ms) :"
+-msgstr " D - Opó¼nienie linii (ms):"
++msgstr " F - Opó¼nienie tx znaku (ms):"
+ 
+ #: src/config.c:1172
+ msgid "Terminal settings"
+@@ -596,17 +589,15 @@
+ msgstr "  \\u = u¿ytkownik, \\p = has³o, \\\\ = \\, \\e = prze³±czenie echa, "
+ 
+ #: src/config.c:1605
+-#, fuzzy
+ msgid ""
+ "  \\l = toggle LF, \\bX1..Xn<sp> = change baud rate. Example: \"\\beq \""
+ msgstr ""
+-"  \\l = prze³±czenie LF, \\bX1..Xn<sp> = zmiana prêdko¶ci. Np.: \"\\bfq \""
++"  \\l = prze³±czenie LF, \\bX1..Xn<sp> = zmiana prêdko¶ci. Np.: \"\\beq \""
+ 
+ #: src/config.c:1607
+-#, fuzzy
+ msgid ""
+ "  = 115200 8N1. (See the \"Comm Parameters\" menu for valid values of X.))"
+-msgstr "  = 19200 8N1 (poprawne warto¶ci X w menu \"Parametry komunikacji\").)"
++msgstr "  = 115200 8N1 (poprawne warto¶ci X w menu \"Parametry komunikacji\").)"
+ 
+ #: src/config.c:1622
+ msgid "CHANGED"
+@@ -811,7 +802,7 @@
+ #: src/dial.c:1015
+ #, c-format
+ msgid "Converted dialdir to new format, old saved as %s.v%hd"
+-msgstr ""
++msgstr "Przekonwertowano katalog telefonów do nowego formatu, stary zapisano jako %s.v%hd"
+ 
+ #: src/dial.c:1050
+ msgid "Cannot open ~/.dialdir for writing!"
+@@ -997,7 +988,7 @@
+ #: src/file.c:322
+ #, c-format
+ msgid "Could not change to directory %s (%s)"
+-msgstr ""
++msgstr "Nie uda³o siê zmieniæ katalogu na %s (%s)"
+ 
+ #: src/file.c:346
+ msgid "Select one or more files for download"
+@@ -1141,7 +1132,7 @@
+ 
+ #: src/help.c:64
+ msgid " Paste file.........Y  Timestamp toggle...N | scroll Back........B"
+-msgstr ""
++msgstr " wklej plik.........Y  Znaczniki czasu....N | przewiñ wstecz.....B"
+ 
+ #: src/help.c:67
+ msgid "Written by Miquel van Smoorenburg 1991-1995"
+@@ -1318,7 +1309,7 @@
+ msgstr "Wpisz \"minicom %s\" po pomoc.\n"
+ 
+ #: src/minicom.c:809
+-#, fuzzy, c-format
++#, c-format
+ msgid ""
+ "Usage: %s [OPTION]... [configuration]\n"
+ "A terminal program for Linux and other unix-like systems.\n"
+@@ -1352,7 +1343,9 @@
+ "Sk³adnia: %s [OPCJA]... [konfiguracja]\n"
+ "Program terminala dla Linuksa i innych systemów uniksowych.\n"
+ "\n"
+-"  -s, --setup            : wej¶cie w tryb konfiguracji (tylko jako root)\n"
++"  -b, --baudrate         : ustawienie prêdko¶ci (zamiast z konfiguracji)\n"
++"  -D, --device           : ustawienie nazwy urz±dzenia (zamiast z konfiguracji)\n"
++"  -s, --setup            : wej¶cie w tryb konfiguracji\n"
+ "  -o, --noinit           : bez inicjalizacji modemu i plików blokuj±cych\n"
+ "  -m, --metakey          : u¿ywanie klawisza meta lub alt dla poleceñ\n"
+ "  -M, --metakey8         : u¿ywanie 8. bitu jako klawisza meta dla poleceñ\n"
+@@ -1449,12 +1442,11 @@
+ 
+ #: src/minicom.c:1415
+ msgid "Port"
+-msgstr ""
++msgstr "Port"
+ 
+ #: src/minicom.c:1417
+-#, fuzzy
+ msgid "Using character set conversion"
+-msgstr "Konwersja znaków"
++msgstr "U¿ycie konwersji zestawu znaków"
+ 
+ #: src/minicom.c:1418
+ #, c-format
+@@ -1516,21 +1508,20 @@
+ msgstr "Zawijanie linii WY£¡CZONE"
+ 
+ #: src/minicom.c:1565
+-#, fuzzy
+ msgid "Timestamp OFF"
+-msgstr "Zawijanie linii WY£¡CZONE"
++msgstr "Znaczniki czasu WY£¡CZONE"
+ 
+ #: src/minicom.c:1568
+ msgid "Timestamp every line (simple)"
+-msgstr ""
++msgstr "Znaczniki czasu w ka¿dej linii (proste)"
+ 
+ #: src/minicom.c:1571
+ msgid "Timestamp every line (extended)"
+-msgstr ""
++msgstr "Znaczniki czasu w ka¿dej linii (rozszerzone)"
+ 
+ #: src/minicom.c:1574
+ msgid "Timestamp lines every second"
+-msgstr ""
++msgstr "Znaczniki czasu w linii co sekundê"
+ 
+ #: src/minicom.c:1615
+ msgid "Quit without reset while online."
+@@ -1707,9 +1698,8 @@
+ msgstr "Wpisz nazwy plików"
+ 
+ #: src/updown.c:288
+-#, fuzzy
+ msgid "Out of memory: could allocate buffer for command line"
+-msgstr "Brak pamiêci: nie mo¿na wykonaæ fork()"
++msgstr "Brak pamiêci: nie uda³o siê przydzieliæ bufora dla linii poleceñ"
+ 
+ #: src/updown.c:300
+ #, c-format
+@@ -1738,14 +1728,13 @@
+ " GOTÓW: wci¶nij dowolny klawisz by kontynuowaæ."
+ 
+ #: src/updown.c:474
+-#, fuzzy
+ msgid "Cannot create lockfile!"
+-msgstr "Nie mo¿na ponownie stworzyæ pliku blokuj±cego (lockfile)!"
++msgstr "Nie mo¿na utworzyæ pliku blokuj±cego (lockfile)!"
+ 
+ #: src/updown.c:488
+-#, fuzzy, c-format
++#, c-format
+ msgid "Cannot create lockfile for %s: %s\n"
+-msgstr "Nie mo¿na utworzyæ pliku blokuj±cego (lock). Wybacz.\n"
++msgstr "Nie mo¿na utworzyæ pliku blokuj±cego dla %s: %s\n"
+ 
+ #: src/updown.c:635
+ msgid "Same as last"
+@@ -1800,50 +1789,3 @@
+ #, c-format
+ msgid "Number of terminal columns unknown\n"
+ msgstr "Nieznana liczba kolumn terminala\n"
+-
+-#~ msgid "Old dialdir copied as %s.%hd"
+-#~ msgstr "Stary katalog dzwonienia skopiowany jako %s.%hd"
+-
+-#~ msgid " Paste file.........Y"
+-#~ msgstr " Wklej plik.........Y"
+-
+-#~ msgid "| scroll Back........B"
+-#~ msgstr "| skroluj z powrotem.B"
+-
+-#~ msgid "Resize not supported, screen may be messed up!"
+-#~ msgstr "Zmiana rozmiaru nie wspierana. Obraz mo¿e byæ nieprawid³owy!"
+-
+-#~ msgid "minicom: there is no global configuration file %s\n"
+-#~ msgstr "minicom: globalny plik konfiguracyjny nie istnieje %s\n"
+-
+-#~ msgid "Ask your sysadmin to create one (with minicom -s).\n"
+-#~ msgstr "Popro¶ administratora systemu o stworzenie go (minicom -s).\n"
+-
+-#~ msgid "minicom: WARNING: configuration file not found, using defaults\n"
+-#~ msgstr ""
+-#~ "minicom: UWAGA: plik konfiguracyjny nie znaleziony, u¿ycie\n"
+-#~ "                ustawieñ standardowych.\n"
+-
+-#~ msgid "You are not allowed to create a configuration"
+-#~ msgstr "Nie masz praw do utworzenia konfiguracji"
+-
+-#~ msgid "minicom: -s switch needs root privilige\n"
+-#~ msgstr "minicom: opcja -s wymaga praw roota\n"
+-
+-#~ msgid ""
+-#~ "minicom: WARNING: please don't run minicom as root when not maintaining\n"
+-#~ "                  it (with the -s switch) since all changes to the\n"
+-#~ "                  configuration will be GLOBAL !.\n"
+-#~ msgstr ""
+-#~ "minicom: UWAGA: proszê nie uruchamiaæ minicoma jako root w celach innych\n"
+-#~ "                ni¿ konfigurowanie go (z opcj± -s), poniewa¿ wszystkie\n"
+-#~ "                zmiany dokonane w konfiguracji bêd± GLOBALNE!\n"
+-
+-#~ msgid "Sorry %s. You are not allowed to use configuration %s.\n"
+-#~ msgstr "Wybacz %s. Nie masz uprawnieñ do u¿ywania konfiguracji %s.\n"
+-
+-#~ msgid "Ask your sysadmin to add your name to %s\n"
+-#~ msgstr "Popro¶ administratora systemu o dodanie do %s.\n"
+-
+-#~ msgid "Minicom: Device disappeared, aborting!\n"
+-#~ msgstr "Minicom: urz±dzenie znik³o, poddajê siê!\n"
