@@ -12,12 +12,12 @@ Summary(tr.UTF-8):	Telix benzeri, TTY kipi iletişim paketi
 Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для текстового режиму
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
-Version:	2.6
+Version:	2.6.1
 Release:	1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://alioth.debian.org/download.php/3689/%{name}-%{version}.tar.gz
-# Source0-md5:	74088234773b9beb0a1fc2bfcc2cc5cc
+Source0:	http://alioth.debian.org/download.php/3700/%{name}-%{version}.tar.gz
+# Source0-md5:	435fb410a5bfa9bb20d4248b3ca53529
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
@@ -97,9 +97,12 @@ Minicom - це комунікаційна програма, чимось схо�
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
+# someone forgot to send it upstream?
+#%patch5 -p1
 
 %{__rm} po/stamp-po
+
+sed -i -e 's#AM_C_PROTOTYPES##g' configure.in
 
 %build
 %{__gettextize}
