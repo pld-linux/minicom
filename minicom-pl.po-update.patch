@@ -1,5 +1,5 @@
---- minicom-2.6/po/pl.po.orig	2012-01-03 17:25:42.469110954 +0100
-+++ minicom-2.6/po/pl.po	2012-01-03 20:13:00.779447073 +0100
+--- minicom-2.6.1/po/pl.po.orig	2012-11-29 16:40:25.414734435 +0100
++++ minicom-2.6.1/po/pl.po	2012-11-29 16:54:48.238049786 +0100
 @@ -1,14 +1,14 @@
  # Polish translation for minicom.
  # This file is distributed under the same license as the minicom package.
@@ -10,11 +10,11 @@
  msgid ""
  msgstr ""
 -"Project-Id-Version: minicom 2.3-rc1\n"
-+"Project-Id-Version: minicom 2.6\n"
++"Project-Id-Version: minicom 2.6.1\n"
  "Report-Msgid-Bugs-To: minicom-devel@lists.alioth.debian.org\n"
- "POT-Creation-Date: 2011-12-27 23:41+0100\n"
+ "POT-Creation-Date: 2012-02-11 14:32+0100\n"
 -"PO-Revision-Date: 2008-01-15 20:10+0100\n"
-+"PO-Revision-Date: 2012-01-03 19:02+0100\n"
++"PO-Revision-Date: 2012-11-29 16:52+0100\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "Language: pl\n"
@@ -139,44 +139,44 @@
  "  -M, --metakey8         : u¿ywanie 8. bitu jako klawisza meta dla poleceñ\n"
 @@ -1449,12 +1442,11 @@
  
- #: src/minicom.c:1415
+ #: src/minicom.c:1430
  msgid "Port"
 -msgstr ""
 +msgstr "Port"
  
- #: src/minicom.c:1417
+ #: src/minicom.c:1432
 -#, fuzzy
  msgid "Using character set conversion"
 -msgstr "Konwersja znaków"
 +msgstr "U¿ycie konwersji zestawu znaków"
  
- #: src/minicom.c:1418
+ #: src/minicom.c:1433
  #, c-format
 @@ -1516,21 +1508,20 @@
  msgstr "Zawijanie linii WY£¡CZONE"
  
- #: src/minicom.c:1565
+ #: src/minicom.c:1580
 -#, fuzzy
  msgid "Timestamp OFF"
 -msgstr "Zawijanie linii WY£¡CZONE"
 +msgstr "Znaczniki czasu WY£¡CZONE"
  
- #: src/minicom.c:1568
+ #: src/minicom.c:1583
  msgid "Timestamp every line (simple)"
 -msgstr ""
 +msgstr "Znaczniki czasu w ka¿dej linii (proste)"
  
- #: src/minicom.c:1571
+ #: src/minicom.c:1586
  msgid "Timestamp every line (extended)"
 -msgstr ""
 +msgstr "Znaczniki czasu w ka¿dej linii (rozszerzone)"
  
- #: src/minicom.c:1574
+ #: src/minicom.c:1589
  msgid "Timestamp lines every second"
 -msgstr ""
-+msgstr "Znaczniki czasu w linii co sekundê"
++msgstr "Linie znaczników czasu co sekundê"
  
- #: src/minicom.c:1615
+ #: src/minicom.c:1630
  msgid "Quit without reset while online."
 @@ -1707,9 +1698,8 @@
  msgstr "Wpisz nazwy plików"
