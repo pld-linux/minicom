@@ -31,7 +31,7 @@ Patch5:		%{name}-pl.po-update.patch
 URL:		http://alioth.debian.org/projects/minicom/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-devel >= 0.16.1
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	sed >= 4.0
 Requires:	/usr/bin/tput
