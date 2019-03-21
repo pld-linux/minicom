@@ -12,12 +12,12 @@ Summary(tr.UTF-8):	Telix benzeri, TTY kipi iletişim paketi
 Summary(uk.UTF-8):	Комунікаційний пакет типу Telix для текстового режиму
 Summary(zh_CN.UTF-8):	一个文本界面的调试解调器控制器和终端模拟器。
 Name:		minicom
-Version:	2.6.1
-Release:	2
+Version:	2.7.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://alioth.debian.org/download.php/3700/%{name}-%{version}.tar.gz
-# Source0-md5:	435fb410a5bfa9bb20d4248b3ca53529
+Source0:	http://deb.debian.org/debian/pool/main/m/minicom/%{name}_%{version}.orig.tar.gz
+# Source0-md5:	9021cb8c5445f6e6e74b2acc39962d62
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
@@ -28,7 +28,7 @@ Patch2:		%{name}-check_exec.patch
 Patch3:		%{name}-man_no_ko.patch
 Patch4:		%{name}-tinfo.patch
 Patch5:		%{name}-pl.po-update.patch
-URL:		http://alioth.debian.org/projects/minicom/
+URL:		https://salsa.debian.org/minicom-team/minicom
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gettext-tools >= 0.16.1
@@ -97,7 +97,8 @@ Minicom - це комунікаційна програма, чимось схо�
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
+# FIXME
+#%patch5 -p1
 
 %{__rm} po/stamp-po
 
