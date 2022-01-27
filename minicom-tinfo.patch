@@ -1,16 +1,16 @@
---- minicom-2.2/configure.in.orig	2006-10-25 20:16:10.658603000 +0200
-+++ minicom-2.2/configure.in	2006-10-25 20:22:45.891303500 +0200
-@@ -157,7 +157,7 @@
+--- minicom-2.8/configure.ac.orig	2022-01-27 18:04:55.862327984 +0100
++++ minicom-2.8/configure.ac	2022-01-27 18:04:58.908978145 +0100
+@@ -163,7 +163,7 @@ LIBS="$LIBS $TERMLIBS"
  
  dnl Checks for header files.
  dnl Do not use <ncurses/termcap.h> unless we're linking with ncurses.
 -if test "x$termlib" = xncurses; then
 +if test "x$termlib" = xncurses -o "x$termlib" = xtinfo; then
    dnl Use AC_CHECK_HEADERS so the HAVE_*_H symbol gets defined.
-   AC_CHECK_HEADERS(ncurses/termcap.h)
+   AC_CHECK_HEADERS(ncurses/termcap.h, [found_termcap_h=1])
  fi
---- minicom-2.3/src/window.c.orig	2008-09-05 12:44:15.000000000 +0200
-+++ minicom-2.3/src/window.c	2008-09-05 15:03:07.000000000 +0200
+--- minicom-2.8/src/window.c.orig	2021-01-01 18:45:55.000000000 +0100
++++ minicom-2.8/src/window.c	2022-01-27 18:06:48.835049291 +0100
 @@ -26,6 +26,13 @@
  #include <stdarg.h>
  #include <wchar.h>
@@ -25,4 +25,3 @@
  #include "port.h"
  #include "minicom.h"
  #include "intl.h"
-
