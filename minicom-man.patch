@@ -1,21 +1,20 @@
-diff -Nur minicom-1.82/man/minicom.1 minicom-1.82.new/man/minicom.1
---- minicom-1.82/man/minicom.1	Sun Sep  6 17:28:28 1998
-+++ minicom-1.82.new/man/minicom.1	Mon Dec 28 17:46:45 1998
-@@ -25,7 +25,7 @@
+--- minicom-2.8/man/minicom.1.orig	2022-01-27 19:30:05.604342263 +0100
++++ minicom-2.8/man/minicom.1	2022-01-27 20:07:19.026828517 +0100
+@@ -22,7 +22,7 @@ configurations, and more.
  .TP 0.5i
- .B -s
+ .B \-s, \-\-setup
  .BR S etup.
 -Root edits the system-wide defaults in /etc/minirc.dfl with this option. 
 +Root edits the system-wide defaults in /etc/minicom/minirc.dfl with this option. 
  When it is used, minicom does 
  .I not 
  initialize, but puts you directly into the
-@@ -746,7 +746,7 @@
+@@ -845,7 +845,7 @@ escape-sequences. To see how dirty this
  But it works like a charm!
  .SH FILES
  Minicom keeps it's configuration files in one directory, usually
 -/var/lib/minicom, /usr/local/etc or /etc. To find out what default
 +/var/lib/minicom, /usr/local/etc or /etc/minicom. To find out what default
  directory minicom has compiled in, issue the command \fIminicom -h\fP.
- You'll probably also find the demo files for \fBrunscript\fP(1) there.
- .sp 1
+ You'll probably also find the demo files for \fBrunscript\fP(1),
+ and the examples of character conversion tables either there or 

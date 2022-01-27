@@ -1,6 +1,6 @@
---- minicom-2.2/src/updown.c.orig	2005-08-14 22:39:30.000000000 +0200
-+++ minicom-2.2/src/updown.c	2006-10-25 20:03:31.063131250 +0200
-@@ -332,6 +332,8 @@
+--- minicom-2.8/src/updown.c.orig	2021-01-01 18:45:55.000000000 +0100
++++ minicom-2.8/src/updown.c	2022-01-27 20:13:24.765495507 +0100
+@@ -406,6 +406,8 @@ void updown(int what, int nr)
    }
  
    while (udpid != m_wait(&status));
@@ -9,7 +9,7 @@
    if (win) {
      enab_sig(0, 0);
      signal(SIGINT, SIG_IGN);
-@@ -409,6 +411,8 @@
+@@ -546,6 +548,8 @@ void kermit(void)
    }
  
    m_wait(&status);
@@ -17,9 +17,9 @@
 +    werror(_("Error executing `%s'"), P_KERMIT);
  
    /* Restore screen and keyboard modes */
-   wreturn();
-@@ -638,6 +642,8 @@
-   
+   mc_wreturn();
+@@ -784,6 +788,8 @@ void runscript(int ask, const char *s, c
+ 
    /* Collect status, and clean up. */
    m_wait(&status);
 +  if (status)
@@ -27,4 +27,3 @@
    enab_sig(0, 0);
    signal(SIGINT, SIG_IGN);
    setcbreak(2); /* Raw, no echo */
-
